@@ -1,10 +1,6 @@
 .closet-container {
-height: 60vh;
-/* width: 50vw; */
+  height: 60vh;
 }
-
-
-
 
 #filter {
   display: flex;
@@ -21,13 +17,10 @@ height: 60vh;
   flex-wrap: wrap;
   justify-content: space-around;
   padding-bottom: 17%;
-  /* height: ; */
-  /* width: 80vw; */
 }
 
 h2 {
   height: 5vh;
-  /* margin-bottom: 1%; */
   text-align: center;
 }
 
@@ -45,6 +38,12 @@ h2 {
   background-color: #bbd0ff;
   border: none;
   color: #2a2a2a;
+  position: static;
   text-align: center;
-  width: 150px;
+  width: 100px;
+}
+
+.select {
+  position: fixed;
+  height: 5vh;
 }
