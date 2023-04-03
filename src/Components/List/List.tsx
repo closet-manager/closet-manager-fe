@@ -28,13 +28,12 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
  
-
   const fetchListDetails = async () => {
     try {
       const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}`);
       const data = await response.json();
-      const list = data.data;
-      setListDetails({ id: list.id, name: list.attributes.name, items: list.attributes.items });
+      const { id, attributes: { name, items } } = data.data;
+      setListDetails({ id, name, items });
     } catch (error) {
       setError('An error occurred while fetching the list details.');
     }
@@ -47,7 +46,6 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
   const handleBack = (): void => {
     onBack();
   };
-  console.log(listDetails)
   return (
     <div>
       <button onClick={handleBack}>Back</button>
