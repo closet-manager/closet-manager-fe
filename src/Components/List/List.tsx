@@ -1,28 +1,30 @@
 import { useState, useEffect } from 'react';
 import React from "react";
+import { Card } from '../Card/Card'
 import './List.css';
 
 interface ListDetails {
-  id: number;
+  id: string;
   name: string;
-  items: string[];
+  items: {id: string, image: string}[];
 }
 
 interface ListProps {
-  listId: number;
+  listId: string;
   onBack: () => void;
 }
 
-export const List: React.FC<ListProps> = ({ Id, onBack }) => {
-  const [listDetails, setListDetails] = useState<ListDetails>({ id: 0, name: '', items: [] });
+export const List: React.FC<ListProps> = ({ listId, onBack }) => {
+  const [listDetails, setListDetails] = useState<ListDetails>({ id: '', name: '', items: [] });
   const [error, setError] = useState<string | null>(null);
+  const [change, setChange] = useState<boolean>(false);
 
   const fetchListDetails = async () => {
     try {
-      const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/lists/${Id}`);
+      const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}`);
       const data = await response.json();
       const list = data.data;
-      setListDetails({ id: parseInt(list.id), name: list.attributes.name, items: list.attributes.items });
+      setListDetails({ id: list.id, name: list.attributes.name, items: list.attributes.items });
     } catch (error) {
       console.error(error);
       setError('An error occurred while fetching the list details.');
@@ -31,21 +33,25 @@ export const List: React.FC<ListProps> = ({ Id, onBack }) => {
 
   useEffect(() => {
     fetchListDetails();
-  }, [Id]);
+  }, [listId, change]);
+
+  const handleBack = (): void => {
+    onBack();
+  };
 
   return (
     <div>
-      <button onClick={onBack}>Back</button>
+      <button onClick={handleBack}>Back</button>
       {error ? (
         <h2>{error}</h2>
       ) : (
         <div>
           <h2>{listDetails.name}</h2>
-          <ul>
+          <div className='card-grid'>
             {listDetails.items.map((item, index) => (
-              <li key={index}>{item}</li>
+              <Card key={index} id={item.id} image={item.image} setChange={setChange} />
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>
