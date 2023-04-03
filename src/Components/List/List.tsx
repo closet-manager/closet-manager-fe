@@ -13,13 +13,13 @@ interface ListProps {
   onBack: () => void;
 }
 
-export const List: React.FC<ListProps> = ({ listId, onBack }) => {
+export const List: React.FC<ListProps> = ({ Id, onBack }) => {
   const [listDetails, setListDetails] = useState<ListDetails>({ id: 0, name: '', items: [] });
   const [error, setError] = useState<string | null>(null);
 
   const fetchListDetails = async () => {
     try {
-      const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/lists/${listId}`);
+      const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/lists/${Id}`);
       const data = await response.json();
       const list = data.data;
       setListDetails({ id: parseInt(list.id), name: list.attributes.name, items: list.attributes.items });
@@ -31,6 +31,23 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
 
   useEffect(() => {
     fetchListDetails();
-  }, [listId]);
+  }, [Id]);
 
+  return (
+    <div>
+      <button onClick={onBack}>Back</button>
+      {error ? (
+        <h2>{error}</h2>
+      ) : (
+        <div>
+          <h2>{listDetails.name}</h2>
+          <ul>
+            {listDetails.items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
 };
