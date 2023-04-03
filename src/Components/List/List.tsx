@@ -31,6 +31,9 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
   const fetchListDetails = async () => {
     try {
       const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch list details');
+      }
       const data = await response.json();
       const { id, attributes: { name, items } } = data.data;
       setListDetails({ id, name, items });
