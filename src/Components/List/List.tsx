@@ -1,12 +1,25 @@
 import { useState, useEffect } from 'react';
 import React from "react";
-import { Card } from '../Card/Card'
+import { Card } from '../Card/Card';
 import './List.css';
 
 interface ListDetails {
   id: string;
   name: string;
-  items: {id: string, image: string}[];
+  items: Item[];
+}
+
+interface Item {
+  id: string;
+  type: string;
+  attributes: {
+    season: string;
+    clothing_type: string;
+    size: string;
+    color: string;
+    image_url: string;
+    notes: string;
+  }
 }
 
 interface ListProps {
@@ -48,8 +61,8 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
         <div>
           <h2>{listDetails.name}</h2>
           <div className='card-grid'>
-            {listDetails.items.map((item, index) => (
-              <Card key={index} id={item.id} image={item.image} setChange={setChange} />
+            {listDetails.items.map((item: Item) => (
+              <Card key={item.id} image={item.attributes.image_url} setChange={setChange} />
             ))}
           </div>
         </div>
