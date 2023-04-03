@@ -24,7 +24,7 @@ function App() {
         <Route path="/myCloset" element={<Closet />} />
         <Route path="/itemDetails/:id" element={<Details />} />
         <Route path="/lists" element={<MyLists userId={1} />} />
-        <Route path="/lists/:id" element={<List />} />
+        <Route path="/lists/:id" element={<List listId={1} />} />
         <Route path="/item-not-found" element={<ItemNotFound />} />
         <Route path="/edit/:id" element={<EditItem />} />
         <Route path="/addList" element={<AddList />} />

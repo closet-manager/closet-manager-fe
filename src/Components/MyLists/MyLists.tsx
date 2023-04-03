@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { List } from '../List/List'
-import './MyLists.css'
+import { List } from '../List/List';
+import './MyLists.css';
 
 interface ListDetails {
   id: number;
@@ -9,13 +9,13 @@ interface ListDetails {
 }
 
 interface ListProps {
-  listId: number;
+  listId: string;
   onBack: () => void;
 }
 
 export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
-  const [lists, setLists] = useState<ListDetails[]>([]); // change state type to ListDetails[]
-  const [selectedList, setSelectedList] = useState<number | null>(null); // track which list is selected
+  const [lists, setLists] = useState<ListDetails[]>([]);
+  const [selectedList, setSelectedList] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const fetchLists = async () => {
@@ -35,16 +35,16 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
   }, [userId]);
 
   const handleListClick = (listId: number) => {
-    setSelectedList(listId); // set the selectedList state to the ID of the clicked list
+    setSelectedList(listId.toString());
   };
 
   const handleBackClick = () => {
-    setSelectedList(null); // set the selectedList state back to null when the user goes back
+    setSelectedList(null);
   };
 
   return (
     <div>
-      {selectedList ? ( // if a list is selected, show the List component
+      {selectedList ? (
         <List listId={selectedList} onBack={handleBackClick} />
       ) : (
         <div>
