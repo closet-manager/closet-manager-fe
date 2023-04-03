@@ -64,3 +64,18 @@ export const getSingleItem = async (id: string) => {
   }
   return response.json();
 }
+
+export const deleteItem = async (id: string | number) => {
+  const url = `https://closet-manager-be.herokuapp.com/api/v1/users/1/items/${id}`
+  const config = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  }
+  const res = await fetch(url, config)
+  if (!res.ok) {
+    throw new Error("Could not delete.")
+  }
+  return res.json();
+}

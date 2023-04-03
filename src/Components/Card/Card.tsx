@@ -1,19 +1,32 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { deleteItem } from '../../apiCall';
+import { MouseEventHandler } from 'react';
+import { Dispatch } from 'react';
+import { SetStateAction } from 'react';
 import './Card.css';
 
 interface CardProps {
-  id: number | string,
+  id: string,
   image: string,
+  setChange: Dispatch<SetStateAction<boolean>>,
 }
 
-export const Card = ({ id, image }: CardProps): JSX.Element => {
-  const [loaded, setLoaded] = useState<boolean>(false)
+export const Card = ({ id, image, setChange }: CardProps): JSX.Element => {
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const onLoad = (): void => setLoaded(true)
 
-  const handleDeleteButton = (): void => {
-    console.log('Delete item!!') //eventually an API call will go here
+  const handleDeleteButton = (id: string) => {
+   console.log(id)
+   setChange(true)
+   return deleteItem(id)
+    .then(data => {
+      console.log(data);
+      setChange(false);
+    })
+    .catch(err => setError(err))
   }
 
   return (
@@ -26,9 +39,10 @@ export const Card = ({ id, image }: CardProps): JSX.Element => {
           className='card-image'
          /> 
          {!loaded && <p>Loading ... </p>}
+         {error && <p>Could not delete item. Please try again later.</p>}
       </Link>
       <div className='banner-container'>
-        <p onClick={handleDeleteButton} className='delete-banner'><i className="fa-light fa-trash-can"></i> Delete</p>
+        <p onClick={() => handleDeleteButton(id)} className='delete-banner'><i className="fa-light fa-trash-can"></i> Delete</p>
       </div>
     </div>
   )

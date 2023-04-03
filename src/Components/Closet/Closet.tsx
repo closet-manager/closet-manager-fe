@@ -13,7 +13,7 @@ interface attributes {
 }
 
 interface Item {
-  id: number;
+  id: string;
   type: string;
   attributes: attributes;
 }
@@ -23,6 +23,7 @@ export const Closet = (): JSX.Element => {
   const [filteredItems, setFilteredItems] = useState<Item[]>([]); 
   const [fetchError, setFetchError] = useState<boolean>(false); 
   const [loading, setLoading] = useState<boolean>(true); 
+  const [change, setChange] = useState<boolean>(false);
 
   useEffect(() => {
     getAllItems()
@@ -40,11 +41,11 @@ export const Closet = (): JSX.Element => {
         setFilteredItems([])
         setLoading(false)
       })
-  }, [])
+  }, [change])
 
   const mappedItems = filteredItems.map((item: Item): JSX.Element => {
     return (
-      <Card key={item.id} id={item.id} image={item.attributes.image_url} />
+      <Card key={item.id} id={item.id} image={item.attributes.image_url} setChange={setChange} />
     );
   });
 
