@@ -117,16 +117,16 @@ export const Details = (): JSX.Element => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      alert("Item added to list successfully");
     } catch (error) {
       console.error(error);
-      alert("An error occurred while adding item to list");
+      setError("An error occurred while fetching the lists.");
     }
   };
 
   useEffect(() => {
     fetchLists();
   }, []);
+
   return (
     <section className="details-section">
       <h2 className="item-details-header">Details</h2>
@@ -166,7 +166,6 @@ export const Details = (): JSX.Element => {
         </option>
       ))}
     </select>
-
           <button onClick={(e) => handleAddToList()} >Add to List:</button>
         </div>
         <button className="details-delete-button">Delete</button>
