@@ -1,11 +1,12 @@
 .card-container {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 200px;
   justify-content: flex-end;
-  width: 150px;
   margin-bottom: 8%;
+  width: 150px;
 }
 
 .card-image {
@@ -20,6 +21,9 @@
 
 .banner-container {
   background-color: #2a2a2a;
+  display: flex;
+  flex-direction: column;
   height: 50px;
+  justify-content: center;
   width: 150px;
 }

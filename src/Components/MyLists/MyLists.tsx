@@ -30,7 +30,7 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
   };
 
   return (
-    <div>
+    <div className="list-container">
       <h2>Custom Lists</h2>
       {error ? (
         <h2>{error}</h2>

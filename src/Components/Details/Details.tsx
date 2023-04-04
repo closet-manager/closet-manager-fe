@@ -8,7 +8,7 @@ interface attributes {
   season: string;
   clothing_type: string;
   size: string;
-  color: string;
+  color: string | undefined;
   image_url: string;
   notes: string;
 }
@@ -67,7 +67,7 @@ export const Details = (): JSX.Element => {
 
   return (
     <section className="details-section">
-      <h2 className="item-details-header">Details</h2>
+      <h2 className="item-details-header">Item Details</h2>
       {loading && <p>Loading...</p>}
       {isDeleted && <p>This item has been removed from your closet.</p>}
       {isDeleted && <p>Redirecting ...</p>}
