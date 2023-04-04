@@ -35,9 +35,7 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
         throw new Error('Failed to fetch list details');
       }
       const data = await response.json();
-      console.log('dta',data)
       const items = data.data;
-      console.log('items', items)
       setListDetails(items);
     } catch (error) {
       setError('An error occurred while fetching the list details.');
