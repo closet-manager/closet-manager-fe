@@ -119,7 +119,7 @@ export const Details = (): JSX.Element => {
       }
     } catch (error) {
       console.error(error);
-      setError("An error occurred while fetching the lists.");
+      setError("An error occurred while adding to lists.");
     }
   };
 
@@ -131,46 +131,72 @@ export const Details = (): JSX.Element => {
     <section className="details-section">
       <h2 className="item-details-header">Details</h2>
       {loading && <p>Loading...</p>}
-      {isDeleted && <p>This item has been removed from your closet.</p>}
-      {isDeleted && <p>Redirecting ...</p>}
-      {item && <div className="item-details-container">
-        {item!.attributes.color && <NavLink to={`/edit/${id}`}>
-          <p className="item-details">{item!.attributes.color}</p>
-        </NavLink>}
-        <NavLink to={`/edit/${id}`}>
-          <p className="item-details">{item!.attributes.season}</p>
-        </NavLink>
-        {item!.attributes.clothing_type && <NavLink to={`/edit/${id}`}>
-          <p className="item-details">{item!.attributes.clothing_type}</p>
-        </NavLink>}
-        {item!.attributes.size && <NavLink to={`/edit/${id}`}>
-          <p className="item-details">{`size ${item!.attributes.size}`}</p>
-        </NavLink>}
-      </div>}
-      {item && <img className="details-image" src={item.attributes.image_url} alt='Image of clothing item'/> }
-      {item && item!.attributes.notes && <div className="notes-container"> 
-        <h2 className="item-notes-header">Notes</h2>
-        <p className="item-notes">{item!.attributes.notes}</p> 
-        </div>}
-      {!loading && !isDeleted && <section className="details-button-container">
-  <NavLink to={`/edit/${id}`}>
-    <button className="details-edit-button">Edit</button>
-  </NavLink>
-  <div className="add-to-list-container"> 
-
-    <select id="list-dropdown" className="details-list-dropdown">
-      <option value="">Select a list</option>
-      {lists.map(list => (
-        <option key={list.id} value={list.id}>
-          {list.name}
-        </option>
-      ))}
-    </select>
-          <button onClick={(e) => handleAddToList()} >Add to List:</button>
+      {isDeleted && (
+        <>
+          <p>This item has been removed from your closet.</p>
+          <p>Redirecting ...</p>
+        </>
+      )}
+      {item && (
+        <div className="item-details-container">
+          {item.attributes.color && (
+            <NavLink to={`/edit/${id}`}>
+              <p className="item-details">{item.attributes.color}</p>
+            </NavLink>
+          )}
+          <NavLink to={`/edit/${id}`}>
+            <p className="item-details">{item.attributes.season}</p>
+          </NavLink>
+          {item.attributes.clothing_type && (
+            <NavLink to={`/edit/${id}`}>
+              <p className="item-details">{item.attributes.clothing_type}</p>
+            </NavLink>
+          )}
+          {item.attributes.size && (
+            <NavLink to={`/edit/${id}`}>
+              <p className="item-details">{`size ${item.attributes.size}`}</p>
+            </NavLink>
+          )}
         </div>
-        <button className="details-delete-button">Delete</button>
-      </section>}
+      )}
+      {item && (
+        <img
+          className="details-image"
+          src={item.attributes.image_url}
+          alt="Image of clothing item"
+        />
+      )}
+      {item && item.attributes.notes && (
+        <div className="notes-container">
+          <h2 className="item-notes-header">Notes</h2>
+          <p className="item-notes">{item.attributes.notes}</p>
+        </div>
+      )}
+      {!loading && !isDeleted && (
+        <section className="details-button-container">
+          <NavLink to={`/edit/${id}`}>
+            <button className="details-edit-button">Edit</button>
+          </NavLink>
+          <div className="add-to-list-container">
+            <select id="list-dropdown" className="details-list-dropdown">
+              <option value="">Select a list</option>
+              {lists.map((list) => (
+                <option key={list.id} value={list.id}>
+                  {list.name}
+                </option>
+              ))}
+            </select>
+            <button onClick={handleAddToList}>Add to List:</button>
+          </div>
+          <button
+            className="details-delete-button"
+            onClick={() => handleDelete(id)}
+          >
+            Delete
+          </button>
+        </section>
+      )}
     </section>
-  )
+  );
 }
 
