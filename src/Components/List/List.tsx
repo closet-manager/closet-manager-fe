@@ -24,20 +24,21 @@ interface ListProps {
 }
 
 export const List: React.FC<ListProps> = ({ listId, onBack }) => {
-  const [listDetails, setListDetails] = useState<{ id: string, name: string, items: Item[] }>({ id: '', name: '', items: [] });
+  const [listDetails, setListDetails] = useState< (Item[] | [] )>([]);
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
- 
+ console.log('listdeets', listDetails)
   const fetchListDetails = async () => {
     try {
-      const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}`);
+      const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}/items`);
       if (!response.ok) {
         throw new Error('Failed to fetch list details');
       }
       const data = await response.json();
-      console.log(data)
-      const { id, attributes: { name, items } } = data.data;
-      setListDetails({ id, name, items });
+      console.log('dta',data)
+      const items = data.data;
+      console.log('items', items)
+      setListDetails(items);
     } catch (error) {
       setError('An error occurred while fetching the list details.');
     }
@@ -66,18 +67,15 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
       setError('An error occurred while deleting the item.');
     }
   };
-
-console.log(listDetails.items)
   return (
     <div>
       <button className="list-back-btn" onClick={handleBack}>Back</button>
-      {error ? (
-        <h2>{error}</h2>
-      ) : (
+      {error && 
+        <h2>{error}</h2>}
         <>
-          <h2>{listDetails.name}</h2>
+          {/* <h2>{listDetails}</h2> */}
           <div className='card-grid'>
-            {listDetails.items.map((item: Item) => (
+            {listDetails && listDetails.map((item: Item) => (
               <div key={item.id}>
                 <Card id={item.id} image={item.attributes.image_url} setChange={setChange} />
                 <button onClick={() => handleDelete(item.id)}>Delete</button>
@@ -85,7 +83,7 @@ console.log(listDetails.items)
             ))}
           </div>
         </>
-      )}
+      
     </div>
   );  
 };  
