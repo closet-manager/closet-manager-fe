@@ -49,6 +49,22 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
   const handleBack = (): void => {
     onBack();
   };
+
+  const handleDelete = async (itemId: string) => {
+    try {
+      const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/lists/${itemId}/lists/${itemId}`, {
+        method: 'DELETE'
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete item');
+      }
+      setChange(!change);
+    } catch (error) {
+      setError('An error occurred while deleting the item.');
+    }
+  };
+
+
   return (
     <div>
       <button onClick={handleBack}>Back</button>
