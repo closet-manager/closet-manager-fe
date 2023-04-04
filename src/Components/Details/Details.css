@@ -30,7 +30,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: black;
   font-size: 16px;
-  height: 3vh;
+  height: 2.5vh;
   margin: 2%;
   text-align: center;
   text-transform: uppercase;
@@ -88,4 +88,8 @@
 
 .item-notes-header {
   font-size: 16px;
+}
+
+.details-navlink {
+  text-decoration: none; 
 }
