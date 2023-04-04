@@ -22,7 +22,11 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
     try {
       const response = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/${userId}/lists`);
       const data = await response.json();
-      const listDetails = data.data.map((list: any) => ({ id: parseInt(list.id), name: list.attributes.name, items: list.attributes.items }));
+      const listDetails = data.data.map((list: any) => ({
+        id: parseInt(list.id),
+        name: list.attributes.name,
+        items: list.attributes.items,
+      }));
       setLists(listDetails);
     } catch (error) {
       console.error(error);
@@ -54,7 +58,11 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
           ) : (
             <div className="button-container">
               {lists.map((list) => (
-                <button key={list.id} className="list-button" onClick={() => handleListClick(list.id)}>
+                <button
+                  key={list.id}
+                  className="list-button"
+                  onClick={() => handleListClick(list.id)}
+                >
                   {list.name}
                 </button>
               ))}
