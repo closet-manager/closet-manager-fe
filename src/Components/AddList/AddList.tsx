@@ -75,8 +75,8 @@ export const AddList: React.FC = (): JSX.Element => {
         <button type="submit" value="Submit" className="form-button">
           Add My Custom List
         </button>
-        {hasError && <h2>{hasError}</h2>}
-        {isPost && <h2>{isPost}</h2>}
+        {hasError && <h2 className="alert-msg">{hasError}</h2>}
+        {isPost && <h2 className="alert-msg">{isPost}</h2>}
       </form>
     </div>
   );
