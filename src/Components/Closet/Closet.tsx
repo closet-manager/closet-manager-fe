@@ -61,9 +61,8 @@ export const Closet = (): JSX.Element => {
 
     const queries = [
       { name: "season", value: season.value },
-      { name: "type", value: clothing_type.value },
+      { name: "clothing_type", value: clothing_type.value },
       { name: "color", value: color.value },
-      { name: "favorite", value: favorite.value },
     ];
     const truthyQueries = queries.filter(({ value }) => value);
     const queriesString = truthyQueries
@@ -118,10 +117,6 @@ export const Closet = (): JSX.Element => {
           <option value="winter">Winter</option>
           <option value="spring">Spring</option>
           <option value="summer">Summer</option>
-        </select>
-        <select id="filter--favorite" name="favorite">
-          <option value="">See All</option>
-          <option value="favorites">Only Favorites</option>
         </select>
       </div>
       {loading && <p className="loading-text">Loading ... </p>}

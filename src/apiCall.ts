@@ -36,7 +36,7 @@ export const createItem = async (data: any) => {
   return response.json();
 };
 
-export const editItem = async ({data}, id: number) => {
+export const editItem = async ({data}: any , id: number) => {
 
   // we cannot leave data: any!! We should make an interface 
   const url = `https://closet-manager-be.herokuapp.com/api/v1/users/1/items/${id}`;

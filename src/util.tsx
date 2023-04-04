@@ -20,5 +20,8 @@ export const singleItemCleaning = (item: Item): Item => {
  if (item!.attributes.notes === "empty again" || item!.attributes.notes === null) {
   item!.attributes.notes = ""
  }
+  if (item!.attributes.color === "unspecified") {
+  item!.attributes.color = "";
+ }
  return item
 }

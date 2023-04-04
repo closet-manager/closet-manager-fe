@@ -1,21 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
+import { useNavigate } from "react-router-dom";
 import './AddItem.css';
 import { createItem } from '../../apiCall';
-import type { FormEvent } from 'react';
-import type { ChangeEvent } from "react"
+
 
 export const AddItem: React.FC = (): JSX.Element => {
 
+  const navigate = useNavigate();
   const [image, setImage] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [itemId, setItemId] = useState<number | undefined>();
   const [successfulPost, setSuccessfulPost] = useState<boolean>(false);
+  const imageInputRef = useRef<HTMLInputElement>(null)
+
+useEffect(() => {
+    if (successfulPost) {
+      navigate(`/itemDetails/${itemId}`)
+    }
+    if (error) {
+      navigate('/item-not-found')
+    }
+  }, [successfulPost, error]);
 
   const handleSubmit = ({target}: FormEvent<HTMLFormElement> ) => {
     const formData = new FormData(target as HTMLFormElement)
     createItem(formData)
       .then(data => {
+        setItemId(data.data.id)
         console.log(data)
-        setSuccessfulPost(true);
+        setSuccessfulPost(true)
+        setImage("")
+        if (imageInputRef.current) {
+          imageInputRef.current.value = ""
+        }
         })
       .catch(err => setError(err))
   }
@@ -30,8 +48,6 @@ export const AddItem: React.FC = (): JSX.Element => {
     <div className="form-container">
       <div className='text-container'> 
         <h2 className="form-title">Add New Item</h2>
-        {error && <p>Sorry, please try again.</p>}
-        {successfulPost && <p>Item Added!</p>}
       </div>
       <form className="form" id="form" onSubmit={(e => {e.preventDefault(); handleSubmit(e);})}>
         {image && <img src={image} alt="" className='image-preview'/>}
@@ -44,6 +60,7 @@ export const AddItem: React.FC = (): JSX.Element => {
             name="image"
             required
             onChange={handleChange}
+            ref={imageInputRef}
           />
         </label>
         <select  className="dropdown" name="clothing_type" required>
@@ -56,7 +73,7 @@ export const AddItem: React.FC = (): JSX.Element => {
           <option value="other">Other</option>
         </select>
         <select className="dropdown" name="color">
-          <option value="unspecified" hidden>Color</option>
+          <option value="unspecified">Color</option>
           <option value="red">Red</option>
           <option value="orange">Orange</option>
           <option value="yellow">Yellow</option>
@@ -70,6 +87,7 @@ export const AddItem: React.FC = (): JSX.Element => {
         </select>
         <select className="dropdown" name="season">
           <option value="all_season" hidden>Season</option>
+          <option value="all_season">All Seasons</option>
           <option value="fall">Fall</option>
           <option value="winter">Winter</option>
           <option value="spring">Spring</option>
@@ -84,6 +102,7 @@ export const AddItem: React.FC = (): JSX.Element => {
           <input className="notes-box" 
             type="text" name="notes" />
         </label>
+        <input type="reset" value="Clear" className="form-button"></input>
         <button type="submit" value="Submit" className="form-button">Add Item!</button>
       </form>
     </div>

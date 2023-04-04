@@ -1,9 +1,8 @@
-import "./EditItem.css";
-import { useNavigate } from "react-router-dom";
+import type { FormEvent } from 'react';
 import { useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
-import { getSingleItem } from "../../apiCall";
-import { editItem } from '../../apiCall';
+import { useNavigate, useParams } from "react-router-dom";
+import "./EditItem.css";
+import { getSingleItem, editItem } from "../../apiCall";
 
 interface attributes {
   [key: string]: string;
@@ -74,7 +73,7 @@ export const EditItem = (): JSX.Element => {
   }
   }, [item]);
 
-  const handleSubmit = () => {
+  const handleSubmit = ({target}: FormEvent<HTMLFormElement>) => {
     const itemInfo = {data: {item: { season: itemSeason!.value, color: itemColor!.value, clothing_type: itemType!.value, size: itemSize!.value, notes: itemNotes!.value}}}
     editItem(itemInfo, item!.id)
     .then((response) => {
@@ -96,7 +95,7 @@ export const EditItem = (): JSX.Element => {
       {loading && <p>Loading...</p>}
       <form className="form" onSubmit={(e => {e.preventDefault(); handleSubmit(e)})}>
         <select  className="dropdown" id="itemType" name="clothing_type" required>
-          <option value="">Clothing Type</option>
+          <option value="other" hidden>Clothing Type</option>
           <option value="tops">Tops</option>
           <option value="bottoms">Bottoms</option>
           <option value="outerwear">Outerwear</option>
@@ -105,7 +104,7 @@ export const EditItem = (): JSX.Element => {
           <option value="other">Other</option>
         </select>
         <select className="dropdown" id="itemColor" name="color">
-          <option value="">Color</option>
+          <option value="unspecified">Color</option>
           <option value="red">Red</option>
           <option value="orange">Orange</option>
           <option value="yellow">Yellow</option>
@@ -115,9 +114,10 @@ export const EditItem = (): JSX.Element => {
           <option value="black">Black</option>
           <option value="white">White</option>
           <option value="neutral">Neutral</option>
-          <option value="other">Multi</option>
+          <option value="multi">Multi</option>
         </select>
         <select className="dropdown" id="itemSeason" name="season">
+          <option value="all_season" hidden>Season</option>
           <option value="all_season">All Seasons</option>
           <option value="fall">Fall</option>
           <option value="winter">Winter</option>
