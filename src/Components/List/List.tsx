@@ -35,12 +35,15 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
         throw new Error('Failed to fetch list details');
       }
       const data = await response.json();
+      console.log(data)
       const { id, attributes: { name, items } } = data.data;
       setListDetails({ id, name, items });
     } catch (error) {
       setError('An error occurred while fetching the list details.');
     }
   };
+
+
 
   useEffect(() => {
     fetchListDetails();
@@ -64,7 +67,7 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
     }
   };
 
-
+console.log(listDetails.items)
   return (
     <div>
       <button className="list-back-btn" onClick={handleBack}>Back</button>
