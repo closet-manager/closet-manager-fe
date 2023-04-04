@@ -67,7 +67,7 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
 
   return (
     <div>
-      <button onClick={handleBack}>Back</button>
+      <button className="list-back-btn" onClick={handleBack}>Back</button>
       {error ? (
         <h2>{error}</h2>
       ) : (
