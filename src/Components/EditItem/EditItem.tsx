@@ -19,7 +19,7 @@ interface Item {
   attributes: attributes;
 }
 
-export const EditItem = (): JSX.Element => {
+export const EditItem: React.FC = (): JSX.Element => {
   const params = useParams();
   const navigate = useNavigate();
   const [item, setItem] = useState<Item | undefined>();
@@ -90,10 +90,10 @@ export const EditItem = (): JSX.Element => {
   }
 
   return (
-    <div className="form-container">
+    <div className="edit-form-container">
       <h2>Edit Item Details</h2>
       {loading && <p>Loading...</p>}
-      <form className="form" onSubmit={(e => {e.preventDefault(); handleSubmit(e)})}>
+      <form className="edit-form" onSubmit={(e => {e.preventDefault(); handleSubmit(e)})}>
         <select  className="dropdown" id="itemType" name="clothing_type" required>
           <option value="other" hidden>Clothing Type</option>
           <option value="tops">Tops</option>

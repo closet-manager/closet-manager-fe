@@ -51,7 +51,7 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
       {selectedList ? (
         <List listId={selectedList} onBack={handleBackClick} />
       ) : (
-        <div>
+        <div className="list-container">
           <h2>Custom Lists</h2>
           {error ? (
             <h2>{error}</h2>

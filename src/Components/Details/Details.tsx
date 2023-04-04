@@ -129,7 +129,7 @@ export const Details = (): JSX.Element => {
 
   return (
     <section className="details-section">
-      <h2 className="item-details-header">Details</h2>
+      <h2 className="item-details-header">Item Details</h2>
       {loading && <p>Loading...</p>}
       {isDeleted && (
         <>

@@ -1,0 +1,16 @@
+.edit-form-container {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 68vh;
+  justify-content: center;
+  padding-bottom: 17%;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  padding-bottom: 25%;
+}

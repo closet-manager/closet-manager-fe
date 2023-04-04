@@ -1,5 +1,5 @@
 .item-not-found {
-  background-color: #f1f1f1;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;

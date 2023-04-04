@@ -1,21 +1,27 @@
 .form--list {
-  display: flex;
-  width: 50vw;
-  flex-direction: column;
   align-items: center;
-  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
 }
 
-.form-container {
+.list-form-container {
+  align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  height: 22vh;
   justify-content: center;
-  align-items: center;
-  height: 80vh;
   padding-bottom: 17%;
 }
 
 .list--input {
-  margin-top: 5%;
   margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.input {
+  font-size: 20px;
+  height: 5vh;
+  width: 57vw;
 }

@@ -1,6 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddList.css";
+import { postCustomList } from "../../apiCall";
 
 interface Event {
   target: {
@@ -9,24 +11,22 @@ interface Event {
 }
 
 export const AddList: React.FC = (): JSX.Element => {
+  const navigate = useNavigate();
   const [newCustomList, setNewCustomList] = useState<string>("");
   const [hasError, setHasError] = useState<string | null>(null);
   const [isPost, setIsPost] = useState<string | null>(null);
+  const [listId, setListId] = useState<string | undefined>()
 
-  //apiCall Function  these need to move to apiCall file
-  const postCustomList = async (data: string) => {
-    const url = `https://closet-manager-be.herokuapp.com/api/v1/users/1/lists`;
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: data }),
-    });
-    if (!response.ok) {
-      throw new Error("Unable To Post Your Data. Try Later.");
+  useEffect(() => {
+    if (isPost) {
+      navigate(`/lists/${listId}`)
     }
-    setIsPost("YOUR CUSTOM LIST IS CREATED");
-    return response.json();
-  };
+    if (hasError) {
+      navigate('/error')
+    }
+  }, [isPost, hasError]);
+  
+
 
   const handleInputChange = (event: Event) => {
     setNewCustomList(event.target.value);
@@ -35,25 +35,25 @@ export const AddList: React.FC = (): JSX.Element => {
   const handleSubmit = async () => {
     console.log(newCustomList);
     try {
-      // next line is for throw error to see if the error message work
-      // throw new Error("WHERE AM I??");
-      await postCustomList(newCustomList);
+      await postCustomList(newCustomList)
+      .then((response) => setListId(response.data.id))
+      .then(() => setIsPost("New List Created"))
     } catch (error) {
       console.error(error);
-      setHasError("UNABLE TO CREATE NEW CUSTOM LIST");
+      setHasError("Error: Unable to Create New List");
     }
-
     clearInput();
   };
+  
   const clearInput = () => {
     setNewCustomList("");
     setTimeout(() => {
       setIsPost(null), setHasError(null);
     }, 3000);
   };
-
+  
   return (
-    <div className="form-container">
+    <div className="list-form-container">
       <h2 className="form-title">Create New List</h2>
       <form
         className="form--list"
@@ -65,18 +65,17 @@ export const AddList: React.FC = (): JSX.Element => {
         <label htmlFor="name" className="list--input">
           <input
             type="text"
-            placeholder="Add Custom List Name"
+            placeholder="Type List Name Here"
             name="name"
             value={newCustomList}
             onChange={(e) => handleInputChange(e)}
             required
+            className="input"
           />
         </label>
         <button type="submit" value="Submit" className="form-button">
           Add My Custom List
         </button>
-        {hasError && <h2 className="alert-msg">{hasError}</h2>}
-        {isPost && <h2 className="alert-msg">{isPost}</h2>}
       </form>
     </div>
   );

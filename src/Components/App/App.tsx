@@ -12,6 +12,8 @@ import { Navbar } from "../Navbar/Navbar";
 import { ItemNotFound } from "../ItemNotFound/ItemNotFound";
 import { EditItem } from "../EditItem/EditItem";
 import { AddList } from "../AddList/AddList";
+import { Error } from "../Error/Error";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="/lists" element={<MyLists userId={1} />} />
         <Route path="/lists/:id" element={<List listId={1} />} />
         <Route path="/item-not-found" element={<ItemNotFound />} />
+        <Route path="/error" element={<Error />} />
         <Route path="/edit/:id" element={<EditItem />} />
         <Route path="/addList" element={<AddList />} />
       </Routes>
