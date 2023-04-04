@@ -75,11 +75,14 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
           <h2>{listDetails.name}</h2>
           <div className='card-grid'>
             {listDetails.items.map((item: Item) => (
-              <Card key={item.id} id={item.id} image={item.attributes.image_url} setChange={setChange} />
+              <div key={item.id}>
+                <Card id={item.id} image={item.attributes.image_url} setChange={setChange} />
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
+              </div>
             ))}
           </div>
         </>
       )}
     </div>
   );  
-};
+};  
