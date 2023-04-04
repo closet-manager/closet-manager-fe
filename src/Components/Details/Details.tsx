@@ -72,16 +72,16 @@ export const Details = (): JSX.Element => {
       {isDeleted && <p>This item has been removed from your closet.</p>}
       {isDeleted && <p>Redirecting ...</p>}
       {item && <div className="item-details-container">
-        {item!.attributes.color && <NavLink to={`/edit/${id}`}>
+        {item!.attributes.color && <NavLink to={`/edit/${id}`} className="details-navlink">
           <p className="item-details">{item!.attributes.color}</p>
         </NavLink>}
-        <NavLink to={`/edit/${id}`}>
+        <NavLink to={`/edit/${id}`} className="details-navlink">
           <p className="item-details">{item!.attributes.season}</p>
         </NavLink>
-        {item!.attributes.clothing_type && <NavLink to={`/edit/${id}`}>
+        {item!.attributes.clothing_type && <NavLink to={`/edit/${id}`} className="details-navlink">
           <p className="item-details">{item!.attributes.clothing_type}</p>
         </NavLink>}
-        {item!.attributes.size && <NavLink to={`/edit/${id}`}>
+        {item!.attributes.size && <NavLink to={`/edit/${id}`} className="details-navlink">
           <p className="item-details">{`size ${item!.attributes.size}`}</p>
         </NavLink>}
       </div>}
@@ -91,7 +91,7 @@ export const Details = (): JSX.Element => {
         <p className="item-notes">{item!.attributes.notes}</p> 
         </div>}
       {!loading && !isDeleted && <div className="details-button-container">
-        <NavLink to={`/edit/${id}`}>
+        <NavLink to={`/edit/${id}`} className="details-navlink">
             <button className="details-edit-button">Edit</button>
         </NavLink>
         <button className="details-list-button">Add to List</button>
