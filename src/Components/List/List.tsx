@@ -55,15 +55,15 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
       {error ? (
         <h2>{error}</h2>
       ) : (
-        <div>         
+        <>
           <h2>{listDetails.name}</h2>
           <div className='card-grid'>
             {listDetails.items.map((item: Item) => (
               <Card key={item.id} id={item.id} image={item.attributes.image_url} setChange={setChange} />
             ))}
           </div>
-        </div>
+        </>
       )}
     </div>
-  );
+  );  
 };
