@@ -76,17 +76,15 @@ export const List: React.FC<ListProps> = ({ listId }) => {
   return (
     <div>
       <button className="list-back-btn" onClick={handleBack}>
-        Back
+        Back To Lists
       </button>
-
       {error && <h2>{error}</h2>}
-
       <div className="card-grid">
         {listDetails &&
           listDetails.map((item: Item, index: number) => (
-            <div key={index}>
+            <div key={index} className="list-card">
               <Card id={item.id} image={item.attributes.image_url} setChange={setChange} />
-              <button onClick={() => handleDelete(item.id)}>Delete</button>
+              <button className="delete-list" onClick={() => handleDelete(item.id)}>Delete From List</button>
             </div>
           ))}
       </div>
