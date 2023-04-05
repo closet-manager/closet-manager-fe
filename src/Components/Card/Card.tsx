@@ -39,7 +39,7 @@ export const Card = ({ id, image, setChange }: CardProps): JSX.Element => {
           alt="Image of clothing item"
           className="card-image"
         />
-        {true && (
+        {!loaded && (
           <div className="loader">
             <GridLoader
               color="#c8b6ff"
