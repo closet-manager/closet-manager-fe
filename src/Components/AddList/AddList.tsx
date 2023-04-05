@@ -15,18 +15,16 @@ export const AddList: React.FC = (): JSX.Element => {
   const [newCustomList, setNewCustomList] = useState<string>("");
   const [hasError, setHasError] = useState<string | null>(null);
   const [isPost, setIsPost] = useState<string | null>(null);
-  const [listId, setListId] = useState<string | undefined>()
+  const [listId, setListId] = useState<string | undefined>();
 
   useEffect(() => {
     if (isPost) {
-      navigate(`/lists/${listId}`)
+      navigate(`/lists/${listId}`);
     }
     if (hasError) {
-      navigate('/error')
+      navigate("/error");
     }
   }, [isPost, hasError]);
-  
-
 
   const handleInputChange = (event: Event) => {
     setNewCustomList(event.target.value);
@@ -36,25 +34,25 @@ export const AddList: React.FC = (): JSX.Element => {
     console.log(newCustomList);
     try {
       await postCustomList(newCustomList)
-      .then((response) => setListId(response.data.id))
-      .then(() => setIsPost("New List Created"))
+        .then((response) => setListId(response.data.id))
+        .then(() => setIsPost("New List Created"));
     } catch (error) {
       console.error(error);
       setHasError("Error: Unable to Create New List");
     }
     clearInput();
   };
-  
+
   const clearInput = () => {
     setNewCustomList("");
     setTimeout(() => {
       setIsPost(null), setHasError(null);
     }, 3000);
   };
-  
+
   return (
     <div className="list-form-container">
-      <h2 className="form-title">Create New List</h2>
+      <h2 className="form-list-title">Create New List</h2>
       <form
         className="form--list"
         onSubmit={(e) => {

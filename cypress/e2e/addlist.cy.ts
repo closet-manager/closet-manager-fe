@@ -14,7 +14,7 @@ describe("AddList Page", () => {
       "have.attr",
       "placeholder"
     );
-    cy.get('[placeholder="Add Custom List Name"]').should("be.visible");
+    cy.get('[placeholder="Type List Name Here"]').should("be.visible");
   });
 
   describe("form submission", () => {
@@ -28,17 +28,20 @@ describe("AddList Page", () => {
       cy.visit("http://localhost:5173/addlist");
       //intercept and fixture
       cy.intercept(
+        "POST",
+        "https://closet-manager-be.herokuapp.com/api/v1/users/1/lists",
         {
-          method: "POST",
-          url: "https://closet-manager-be.herokuapp.com/api/v1/users/1/lists",
-        },
-        { name: "Random place to visit" }
+          statusCode: 201,
+          body: { name: "Random place to visit", data: { id: 45 } },
+        }
       );
       cy.get("#root > main > div > form > label > input[type=text]").type(
         "Random place to visit"
       );
+
       cy.get("#root > main > div > form > button").click();
-      cy.get(".alert-msg").should("contain", "YOUR CUSTOM LIST IS CREATED");
+      cy.url().should("include", "/lists/45");
+
     });
   });
 });
