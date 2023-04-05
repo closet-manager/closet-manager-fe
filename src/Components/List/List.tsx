@@ -20,9 +20,6 @@ interface Item {
   attributes: Attributes;
 }
 
-interface ListProps {
-  listId: string;
-}
 
 export const List: React.FC = () => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
@@ -31,8 +28,7 @@ export const List: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation()
   const listId = location.state.listId
-
-  console.log(listId)
+  
 
   const fetchListDetails = async () => {
     try {
@@ -79,8 +75,11 @@ export const List: React.FC = () => {
     }
   };
 
-  const handleDeleteList = (listId: string) => {
-    deleteCustomList(listId)
+  const handleDeleteList = async (listId: string) => {
+   await deleteCustomList(listId)
+    navigate("/lists", {
+      state: {deleted: true}
+    })
   }
 
   return (
