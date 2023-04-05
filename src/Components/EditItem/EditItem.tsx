@@ -19,7 +19,7 @@ interface Item {
   attributes: attributes;
 }
 
-export const EditItem = (): JSX.Element => {
+export const EditItem: React.FC = (): JSX.Element => {
   const params = useParams();
   const navigate = useNavigate();
   const [item, setItem] = useState<Item | undefined>();

@@ -14,7 +14,7 @@
 }
 
 .delete-banner {
-  color: #B8C0FF;
+  color: #b8c0ff;
   text-align: center;
 }
 
@@ -25,4 +25,8 @@
   height: 50px;
   justify-content: center;
   width: 150px;
+}
+
+.loader {
+  margin-left: 60px;
 }
