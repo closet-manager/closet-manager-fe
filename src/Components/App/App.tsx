@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import { Route, Routes } from "react-router";
 import { AppMenu } from "../Home/Home";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
@@ -16,6 +17,8 @@ import { Error } from "../Error/Error";
 
 
 function App() {
+  const [isListDeleted, setIsListDeleted] = useState<boolean>(false)
+
   return (
     <main>
       <Header />
@@ -25,8 +28,8 @@ function App() {
         <Route path="/addItem" element={<AddItem />} />
         <Route path="/myCloset" element={<Closet />} />
         <Route path="/itemDetails/:id" element={<Details />} />
-        <Route path="/lists" element={<MyLists userId={1} />} />
-        <Route path="/lists/:id" element={<List listId={'1'} />} />
+        <Route path="/lists" element={<MyLists />} />
+        <Route path="/lists/:id" element={<List />} />
         <Route path="/item-not-found" element={<ItemNotFound />} />
         <Route path="/error" element={<Error />} />
         <Route path="/edit/:id" element={<EditItem />} />

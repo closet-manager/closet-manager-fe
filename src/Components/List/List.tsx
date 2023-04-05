@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./List.css";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router";
+import { deleteCustomList } from "../../apiCall";
 
 interface Attributes {
   season: string;
@@ -18,15 +20,15 @@ interface Item {
   attributes: Attributes;
 }
 
-interface ListProps {
-  listId: string;
-}
 
-export const List: React.FC<ListProps> = ({ listId }) => {
+export const List: React.FC = () => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
   const navigate = useNavigate();
+  const location = useLocation()
+  const listId = location.state.listId
+  
 
   const fetchListDetails = async () => {
     try {
@@ -73,11 +75,19 @@ export const List: React.FC<ListProps> = ({ listId }) => {
     }
   };
 
+  const handleDeleteList = async (listId: string) => {
+   await deleteCustomList(listId)
+    navigate("/lists", {
+      state: {deleted: true}
+    })
+  }
+
   return (
     <div>
       <button className="list-back-btn" onClick={handleBack}>
         Back To Lists
       </button>
+      <button className="delete-list-button" onClick={() => handleDeleteList(listId)}> Delete this list</button>
       {error && <h2>{error}</h2>}
       <div className="card-grid">
         {listDetails &&
