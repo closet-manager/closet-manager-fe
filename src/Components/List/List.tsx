@@ -56,7 +56,7 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
   const handleDelete = async (itemId: string) => {
     try {
       const response = await fetch(
-        `https://closet-manager-be.herokuapp.com/api/v1/lists/${itemId}/lists/${itemId}`,
+        `https://closet-manager-be.herokuapp.com/api/v1/items/${itemId}/lists/${listId}`,
         {
           method: "DELETE",
         }
