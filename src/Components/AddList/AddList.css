@@ -9,8 +9,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 22vh;
-  justify-content: center;
+  height: 50vh;
+  justify-content: flex-start;
   padding-bottom: 17%;
 }
 
@@ -23,4 +23,8 @@
   font-size: 20px;
   height: 5vh;
   width: 57vw;
+}
+
+.form-title-add {
+  margin-top: 20%;
 }
