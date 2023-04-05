@@ -17,12 +17,7 @@ interface Item {
   attributes: Attributes;
 }
 
-interface ListProps {
-  listId: string;
-  onBack: () => void;
-}
-
-export const List: React.FC<ListProps> = ({ listId, onBack }) => {
+export const List: React.FC = () => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
@@ -30,7 +25,7 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
   const fetchListDetails = async () => {
     try {
       const response = await fetch(
-        `https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}/items`
+        `https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/1/items`
       );
 
       if (!response.ok) {
@@ -47,7 +42,7 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
 
   useEffect(() => {
     fetchListDetails();
-  }, [listId, change]);
+  }, [change]);
 
   const handleBack = (): void => {
     onBack();
@@ -56,7 +51,7 @@ export const List: React.FC<ListProps> = ({ listId, onBack }) => {
   const handleDelete = async (itemId: string) => {
     try {
       const response = await fetch(
-        `https://closet-manager-be.herokuapp.com/api/v1/items/${itemId}/lists/${listId}`,
+        `https://closet-manager-be.herokuapp.com/api/v1/items/${itemId}/lists/1`,
         {
           method: "DELETE",
         }
