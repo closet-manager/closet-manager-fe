@@ -1,6 +1,5 @@
 .card-container {
   align-items: center;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 200px;
@@ -29,5 +28,6 @@
 }
 
 .loader {
+  margin-bottom: 30%;
   margin-left: 60px;
 }

@@ -102,7 +102,7 @@ useEffect(() => {
           <input className="notes-box" 
             type="text" name="notes" />
         </label>
-        <input type="reset" value="Clear" className="form-button"></input>
+        <input type="reset" value="Clear" className="form-button-clear"></input>
         <button type="submit" value="Submit" className="form-button">Add Item!</button>
       </form>
     </div>

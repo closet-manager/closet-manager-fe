@@ -1,6 +1,5 @@
 .form-container {
   align-items: center;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 80vh;
@@ -57,9 +56,18 @@ p {
   margin-bottom: 10%;
 }
 
-.form-button {
+.form-button,
+.form-button-clear {
   background-color: #b8c0ff;
+  border: none;
+  border-radius: 5px;
   margin-bottom: 10%;
+  width: 50vw;
+}
+
+.form-button-clear {
+  font-size: 16px;
+  height: 4.5vh;
 }
 
 .size-input {

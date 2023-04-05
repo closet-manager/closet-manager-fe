@@ -1,7 +1,6 @@
 .details-section {
   align-items: center;
   color: #2a2a2a;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -27,15 +26,20 @@
 
 .item-details {
   background-color: #b8c0ff;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: black;
-  font-size: 20px;
-  height: 5vh;
+  font-size: 16px;
+  height: 2.5vh;
   margin: 2%;
   text-align: center;
   text-transform: uppercase;
-  width: 40vw;
+  width: 35vw;
+}
+
+.item-details:hover {
+  background-color: #c8b6ff;
+  color: #2a2a2a;
 }
 
 .details-button-container {
@@ -89,4 +93,9 @@
 
 .item-notes-header {
   font-size: 16px;
+  margin: 0;
+}
+
+.details-navlink {
+  text-decoration: none; 
 }
