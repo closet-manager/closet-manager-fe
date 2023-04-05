@@ -190,7 +190,7 @@ export const Details = (): JSX.Element => {
           </div>
           <button
             className="details-delete-button"
-            onClick={() => handleDelete(id)}
+            onClick={() => handleDelete(id!)}
           >
             Delete
           </button>
