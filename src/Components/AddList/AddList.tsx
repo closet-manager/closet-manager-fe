@@ -54,7 +54,7 @@ export const AddList: React.FC = (): JSX.Element => {
   
   return (
     <div className="list-form-container">
-      <h2 className="form-title">Create New List</h2>
+      <h2 className="form-title-add">Create New List</h2>
       <form
         className="form--list"
         onSubmit={(e) => {
