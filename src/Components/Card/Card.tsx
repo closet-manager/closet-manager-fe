@@ -39,13 +39,15 @@ export const Card = ({ id, image, setChange }: CardProps): JSX.Element => {
           alt="Image of clothing item"
           className="card-image"
         />
-        {!loaded && (
-          <GridLoader
-            color="#c8b6ff"
-            size={10}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
+        {true && (
+          <div className="loader">
+            <GridLoader
+              color="#c8b6ff"
+              size={10}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
         )}
         {error && <p>Could not delete item. Please try again later.</p>}
       </Link>
