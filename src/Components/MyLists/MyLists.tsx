@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { List } from '../List/List';
 import './MyLists.css';
 
@@ -58,13 +59,15 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
           ) : (
             <div className="button-container">
               {lists.map((list) => (
-                <button
-                  key={list.id}
-                  className="list-button"
-                  onClick={() => handleListClick(list.id)}
-                >
-                  {list.name}
-                </button>
+                <Link to={`/lists/${list.id}`}>
+                  <button
+                    key={list.id}
+                    className="list-button"
+                    // onClick={() => handleListClick(list.id)}
+                  >
+                    {list.name}
+                  </button>
+                </Link>
               ))}
             </div>
           )}

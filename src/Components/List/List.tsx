@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./List.css";
 import { useNavigate } from "react-router";
+import { deleteCustomList } from "../../apiCall";
 
 interface Attributes {
   season: string;
@@ -73,11 +74,16 @@ export const List: React.FC<ListProps> = ({ listId }) => {
     }
   };
 
+  const handleDeleteList = (listId: string) => {
+    deleteCustomList(listId)
+  }
+
   return (
     <div>
       <button className="list-back-btn" onClick={handleBack}>
         Back To Lists
       </button>
+      <button className="delete-list-button" onClick={() => handleDeleteList(listId)}> Delete this list</button>
       {error && <h2>{error}</h2>}
       <div className="card-grid">
         {listDetails &&
