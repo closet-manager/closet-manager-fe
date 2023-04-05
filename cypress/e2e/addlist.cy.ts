@@ -38,8 +38,10 @@ describe("AddList Page", () => {
       cy.get("#root > main > div > form > label > input[type=text]").type(
         "Random place to visit"
       );
+
       cy.get("#root > main > div > form > button").click();
       cy.url().should("include", "/lists/45");
+
     });
   });
 });

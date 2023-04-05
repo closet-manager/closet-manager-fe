@@ -26,7 +26,7 @@ h2 {
 }
 
 .filter-button {
-  background-color: #B8C0FF;
+  background-color: #b8c0ff;
   color: #2a2a2a;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
 }
@@ -39,4 +39,8 @@ h2 {
   color: #2a2a2a;
   text-align: center;
   width: 150px;
+}
+
+.closet-loader {
+  margin-left: 40%;
 }

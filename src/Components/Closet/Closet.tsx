@@ -1,7 +1,8 @@
 import { Card } from "../Card/Card";
 import "./Closet.css";
 import { useState, useEffect } from "react";
-import { filterItems, getAllItems} from "../../apiCall"
+import { filterItems, getAllItems } from "../../apiCall";
+import GridLoader from "react-spinners/GridLoader";
 
 interface attributes {
   season: string;
@@ -20,32 +21,37 @@ interface Item {
 
 export const Closet = (): JSX.Element => {
   const [allItems, setAllItems] = useState<Item[]>([]);
-  const [filteredItems, setFilteredItems] = useState<Item[]>([]); 
-  const [fetchError, setFetchError] = useState<boolean>(false); 
-  const [loading, setLoading] = useState<boolean>(true); 
+  const [filteredItems, setFilteredItems] = useState<Item[]>([]);
+  const [fetchError, setFetchError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [change, setChange] = useState<boolean>(false);
 
   useEffect(() => {
     getAllItems()
       .then((response) => {
-        setAllItems(response.data)
-        setFilteredItems(response.data)
-        setFetchError(false)
-        setLoading(false)
-        console.log("All Items:", allItems)
+        setAllItems(response.data);
+        setFilteredItems(response.data);
+        setFetchError(false);
+        setLoading(false);
+        console.log("All Items:", allItems);
       })
-      .catch((Error)  => {
-        console.log("All Items Fetch Error")
-        setFetchError(true)
-        setAllItems([])
-        setFilteredItems([])
-        setLoading(false)
-      })
-  }, [change])
+      .catch((Error) => {
+        console.log("All Items Fetch Error");
+        setFetchError(true);
+        setAllItems([]);
+        setFilteredItems([]);
+        setLoading(false);
+      });
+  }, [change]);
 
   const mappedItems = filteredItems.map((item: Item): JSX.Element => {
     return (
-      <Card key={item.id} id={item.id} image={item.attributes.image_url} setChange={setChange} />
+      <Card
+        key={item.id}
+        id={item.id}
+        image={item.attributes.image_url}
+        setChange={setChange}
+      />
     );
   });
 
@@ -70,19 +76,19 @@ export const Closet = (): JSX.Element => {
       .join("&");
 
     const url = `https://closet-manager-be.herokuapp.com/api/v1/users/1/items/find_all?${queriesString}`;
-    setLoading(true)
+    setLoading(true);
     filterItems(url)
       .then((response) => {
-        console.log("Filtered Items:", response)
-          setFilteredItems(response.data)
-          setFetchError(false)
-        })
-      .catch((Error)  => {
-        console.log("Filter Fetch Error")
-        setFetchError(true)
-        setFilteredItems([])
+        console.log("Filtered Items:", response);
+        setFilteredItems(response.data);
+        setFetchError(false);
       })
-      setLoading(false)
+      .catch((Error) => {
+        console.log("Filter Fetch Error");
+        setFetchError(true);
+        setFilteredItems([]);
+      });
+    setLoading(false);
   };
 
   return (
@@ -119,8 +125,22 @@ export const Closet = (): JSX.Element => {
           <option value="summer">Summer</option>
         </select>
       </div>
-      {loading && <p className="loading-text">Loading ... </p>}
-      {fetchError && <p className="fetch-error-text">Unable to get items. Please try again later"</p>}
+
+      {loading && (
+        <div className="closet-loader">
+          <GridLoader
+            color="#c8b6ff"
+            size={40}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
+      {fetchError && (
+        <p className="fetch-error-text">
+          Unable to get items. Please try again later"
+        </p>
+      )}
       {!filteredItems.length && !loading && <p>No Items Found</p>}
       <div className="cards-container">{mappedItems}</div>
     </div>

@@ -1,0 +1,81 @@
+.card-grid {
+  align-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 17%;
+}
+
+.list-back-btn {
+  background-color: #BBD0FF;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 5%;
+  margin-left: 33%;
+  transition: all 0.2s ease-in-out;
+}
+
+.list-back-btn:hover {
+  background-color: #C8B6FF;
+}
+
+.delete-list {
+  color: #b8c0ff;
+  height: 6vh;
+  text-align: center;
+  width: 40vw;
+}
+
+.list-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 32vh;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  .card-grid {
+
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+
+  .card p {
+    font-size: 0.875rem;
+    margin: 0.5rem;
+  }
+
+  .card button {
+    margin: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-grid {
+  
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1.125rem;
+    margin: 1.5rem;
+  }
+
+  .card button {
+    margin: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+  }
+}
