@@ -49,17 +49,9 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
 
   return (
     <div>
-      {selectedList ? (
-        <List listId={selectedList}/>
-      ) : (
-        <div className="list-container">
-          <h2>Custom Lists</h2>
-          {error ? (
-            <h2>{error}</h2>
-          ) : (
             <div className="button-container">
               {lists.map((list) => (
-                <Link to={`/lists/${list.id}`}>
+                <Link to={`/lists/${list.id}`} state={{listId: list.id}} style={{ textDecoration: 'none' }}>
                   <button
                     key={list.id}
                     className="list-button"
@@ -70,9 +62,17 @@ export const MyLists: React.FC<{ userId: number }> = ({ userId }) => {
                 </Link>
               ))}
             </div>
+      {/* {selectedList ? (
+        <List listId={selectedList}/>
+      ) : (
+        <div className="list-container">
+          <h2>Custom Lists</h2>
+          {error ? (
+            <h2>{error}</h2>
+          ) : (
           )}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

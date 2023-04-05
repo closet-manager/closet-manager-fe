@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./List.css";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import { deleteCustomList } from "../../apiCall";
 
 interface Attributes {
@@ -23,11 +24,15 @@ interface ListProps {
   listId: string;
 }
 
-export const List: React.FC<ListProps> = ({ listId }) => {
+export const List: React.FC = () => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
   const navigate = useNavigate();
+  const location = useLocation()
+  const listId = location.state.listId
+
+  console.log(listId)
 
   const fetchListDetails = async () => {
     try {
