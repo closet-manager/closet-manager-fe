@@ -14,7 +14,7 @@ interface Attributes {
 }
 
 interface Item {
-  id: number;
+  id: string;
   type: string;
   attributes: Attributes;
 }
@@ -24,7 +24,7 @@ type IdParams = {
 };
 
 interface List {
-  id: number;
+  id: string;
   name: string;
 }
 
