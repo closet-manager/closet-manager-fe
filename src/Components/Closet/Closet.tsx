@@ -125,14 +125,16 @@ export const Closet = (): JSX.Element => {
           <option value="summer">Summer</option>
         </select>
       </div>
-      {/* {loading && <p className="loading-text">Loading ... </p>} */}
+
       {loading && (
-        <GridLoader
-          color="#c8b6ff"
-          size={10}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
+        <div className="closet-loader">
+          <GridLoader
+            color="#c8b6ff"
+            size={40}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
       )}
       {fetchError && (
         <p className="fetch-error-text">
