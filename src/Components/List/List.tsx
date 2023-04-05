@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./List.css";
+import { useNavigate } from "react-router";
 
 interface Attributes {
   season: string;
@@ -17,15 +18,20 @@ interface Item {
   attributes: Attributes;
 }
 
-export const List: React.FC = () => {
+interface ListProps {
+  listId: string;
+}
+
+export const List: React.FC<ListProps> = ({ listId }) => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const fetchListDetails = async () => {
     try {
       const response = await fetch(
-        `https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/1/items`
+        `https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}/items`
       );
 
       if (!response.ok) {
@@ -45,7 +51,7 @@ export const List: React.FC = () => {
   }, [change]);
 
   const handleBack = (): void => {
-    onBack();
+    navigate("/lists");
   };
 
   const handleDelete = async (itemId: string) => {
@@ -77,8 +83,8 @@ export const List: React.FC = () => {
 
       <div className="card-grid">
         {listDetails &&
-          listDetails.map((item: Item) => (
-            <div key={item.id}>
+          listDetails.map((item: Item, index: number) => (
+            <div key={index}>
               <Card id={item.id} image={item.attributes.image_url} setChange={setChange} />
               <button onClick={() => handleDelete(item.id)}>Delete</button>
             </div>
