@@ -133,7 +133,7 @@ export const EditItem: React.FC = (): JSX.Element => {
           <input className="notes-box" id="itemNotes"
             type="text" name="notes" />
         </label>
-        <button type="submit" value="Submit" className="form-button">Save</button>
+        <button type="submit" value="Submit" className="form-button-add">Save</button>
         </form>
     </div>
   );
