@@ -63,10 +63,6 @@
 }
 
 @media (min-width: 1200px) {
-  .card-grid {
-  
-  }
-
   .card h3 {
     font-size: 1.5rem;
     margin: 1.5rem;
