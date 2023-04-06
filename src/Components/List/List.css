@@ -7,14 +7,16 @@
   padding-bottom: 17%;
 }
 
-.list-back-btn {
+.list-back-btn, 
+.delete-list-button {
   background-color: #BBD0FF;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  margin: 5%;
-  margin-left: 33%;
+  margin: 2%;
+  margin-left: 38%;
   transition: all 0.2s ease-in-out;
+  width: 40vw;
 }
 
 .list-back-btn:hover {
@@ -22,7 +24,8 @@
 }
 
 .delete-list {
-  color: #b8c0ff;
+  background-color: #b8c0ff;
+  color: #2a2a2a;
   height: 6vh;
   text-align: center;
   width: 40vw;
@@ -36,11 +39,14 @@
   justify-content: flex-end;
 }
 
+.list-buttons-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  width: 80vw;
+}
+
 @media (max-width: 767px) {
-  .card-grid {
-
-  }
-
   .card h3 {
     font-size: 1rem;
     margin: 0.5rem;
@@ -59,10 +65,6 @@
 }
 
 @media (min-width: 1200px) {
-  .card-grid {
-  
-  }
-
   .card h3 {
     font-size: 1.5rem;
     margin: 1.5rem;

@@ -84,10 +84,12 @@ export const List: React.FC = () => {
 
   return (
     <div>
-      <button className="list-back-btn" onClick={handleBack}>
-        Back To Lists
-      </button>
-      <button className="delete-list-button" onClick={() => handleDeleteList(listId)}> Delete this list</button>
+      <div className="list-buttons-container">
+        <button className="list-back-btn" onClick={handleBack}>
+          Back To Lists
+        </button>
+        <button className="delete-list-button" onClick={() => handleDeleteList(listId)}> Delete this list</button>
+      </div>
       {error && <h2>{error}</h2>}
       <div className="card-grid">
         {listDetails &&
