@@ -16,12 +16,12 @@
 
 ## Table of Contents
 
-[Abstract](#abstract) ~
-[Installation Instructions](#installation-instructions) ~
-[Deployed Link](#deployed-link) ~
-[Preview of App](#preview-of-app) ~
-[Technologies](#technologies) ~
-[Contributors](#contributors) ~
+[Abstract](#abstract) |
+[Installation Instructions](#installation-instructions) |
+[Deployed Link](#deployed-link) |
+[Preview of App](#preview-of-app) |
+[Technologies](#technologies) |
+[Contributors](#contributors) |
 [Sources](#sources)
 
 </div>
@@ -67,6 +67,13 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 [Click here to view deployed app on Vercel](https://closet-manager-fe.vercel.app/)
 
 ---
+
+## Wireframe Link
+
+[Click here to view our wireframe](https://excalidraw.com/#room=f16f53abe8feadadb2b1,qWn6iOL0DiIiKZR4dtgexw)
+
+---
+
 
 ## Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
