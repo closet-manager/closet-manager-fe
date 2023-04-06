@@ -34,7 +34,7 @@ export const createItem = async (data: FormData) => {
     body: data,
   });
   if (!response.ok) {
-    console.log(response)
+    console.error(response)
     throw new Error("Unable To Fetch Your Data. Try Later.");
   }
   return response.json();
@@ -50,7 +50,7 @@ export const editItem = async ({data}: Data , id: number) => {
     body:  JSON.stringify(data),
   });
   if (!response.ok) {
-    console.log(response)
+    console.error(response)
     throw new Error("Unable To Update Item. Try Later.");
   }
   return response;
