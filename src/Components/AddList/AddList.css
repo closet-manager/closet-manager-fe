@@ -25,6 +25,7 @@
   width: 57vw;
 }
 
-.form-title-add {
+.form-title-add,
+.form-button {
   margin-top: 20%;
 }
