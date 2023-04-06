@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import './AddItem.css';
 import { createItem } from '../../apiCall';
 
-
 export const AddItem: React.FC = (): JSX.Element => {
 
   const navigate = useNavigate();
@@ -12,7 +11,7 @@ export const AddItem: React.FC = (): JSX.Element => {
   const [error, setError] = useState<string>("");
   const [itemId, setItemId] = useState<number | undefined>();
   const [successfulPost, setSuccessfulPost] = useState<boolean>(false);
-  const imageInputRef = useRef<HTMLInputElement>(null)
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
 useEffect(() => {
     if (successfulPost) {
@@ -28,7 +27,6 @@ useEffect(() => {
     createItem(formData)
       .then(data => {
         setItemId(data.data.id)
-        console.log(data)
         setSuccessfulPost(true)
         setImage("")
         if (imageInputRef.current) {
@@ -107,4 +105,4 @@ useEffect(() => {
       </form>
     </div>
   );
-}
+};

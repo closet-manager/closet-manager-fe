@@ -20,6 +20,10 @@ interface Item {
   attributes: Attributes;
 }
 
+type IdParams = {
+  id: string;
+};
+
 export const List: React.FC = () => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -53,10 +57,10 @@ export const List: React.FC = () => {
     navigate("/lists");
   };
 
-  const handleDelete = async (itemId: string) => {
+  const handleDelete = async (id: string) => {
     try {
       const response = await fetch(
-        `https://closet-manager-be.herokuapp.com/api/v1/items/${itemId}/lists/1`,
+        `https://closet-manager-be.herokuapp.com/api/v1/items/${id}/lists/1`,
         {
           method: "DELETE",
         }
@@ -72,8 +76,8 @@ export const List: React.FC = () => {
     }
   };
 
-  const handleDeleteList = async (listId: string) => {
-   await deleteCustomList(listId)
+  const handleDeleteList = async (id: string) => {
+   await deleteCustomList(id)
     navigate("/lists", {
       state: {deleted: true}
     })
@@ -84,7 +88,7 @@ export const List: React.FC = () => {
       <button className="list-back-btn" onClick={handleBack}>
         Back To Lists
       </button>
-      <button className="delete-list-button" onClick={() => handleDeleteList(listId)}> Delete this list</button>
+      <button className="delete-list-button" onClick={() => handleDeleteList(id!)}> Delete this list</button>
       {error && <h2>{error}</h2>}
       <div className="card-grid">
         {listDetails &&

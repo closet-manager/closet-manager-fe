@@ -20,7 +20,6 @@ export const AddList: React.FC = (): JSX.Element => {
   };
 
   const handleSubmit = async () => {
-    console.log(newCustomList);
     try {
       await postCustomList(newCustomList)
         .then((response) => {

@@ -8,7 +8,6 @@ interface ListDetails {
   items: string[];
 }
 
-
 export const MyLists: React.FC = () => {
   const [lists, setLists] = useState<ListDetails[]>([]);
   const [selectedList, setSelectedList] = useState<string | null>(null);
