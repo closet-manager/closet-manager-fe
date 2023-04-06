@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./List.css";
 import { useNavigate } from "react-router";
-import { useLocation } from "react-router";
 import { deleteCustomList } from "../../apiCall";
+import { useParams } from "react-router-dom";
 
 interface Attributes {
   season: string;
@@ -20,26 +20,23 @@ interface Item {
   attributes: Attributes;
 }
 
-
 export const List: React.FC = () => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
   const navigate = useNavigate();
-  const location = useLocation()
-  const listId = location.state.listId
-  console.log(location.state)
+  const { id } = useParams<IdParams>();
 
   const fetchListDetails = async () => {
     try {
       const response = await fetch(
-        `https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${listId}/items`
+        `https://closet-manager-be.herokuapp.com/api/v1/users/1/lists/${id}/items`
       );
 
       if (!response.ok) {
         throw new Error("Failed to fetch list details");
       }
-
+      
       const data = await response.json();
       const items = data.data;
       setListDetails(items);
