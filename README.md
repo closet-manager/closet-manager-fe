@@ -92,8 +92,10 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 ---
 
 ## CI/CD
-
-<img src="https://github.com/closet-manager/closet-manager-fe/actions/workflows/github-actions-demo.yml/badge.svg" height="30" width="300">
+<div>
+  <a href="https://github.com/closet-manager/closet-manager-fe/actions">
+  <img src="https://github.com/closet-manager/closet-manager-fe/actions/workflows/github-actions-demo.yml/badge.svg" height="30" width="300">
+</div>
 
 ---
 
