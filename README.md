@@ -68,13 +68,6 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 
 ---
 
-## Wireframe Link
-
-[Click here to view our wireframe](https://excalidraw.com/#room=f16f53abe8feadadb2b1,qWn6iOL0DiIiKZR4dtgexw)
-
----
-
-
 ## Preview of App:
 [//]: <> (add gifs)
 
@@ -177,6 +170,6 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 ---
 
 
-## Sources
+## Resources
 
-[MDN](https://developer.mozilla.org/en-US/) · [W3Schools](https://www.w3schools.com/) · [TypeScript for JS Developers Docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+[GitHub Organization](https://github.com/closet-manager) · [Project Board](https://github.com/orgs/closet-manager/projects/1) · [Wireframe](https://excalidraw.com/#room=f16f53abe8feadadb2b1,qWn6iOL0DiIiKZR4dtgexw) · [Backend Repository](https://github.com/closet-manager/closet-manager-be) · [TypeScript for JS Developers Docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
