@@ -117,6 +117,10 @@ export const Details = (): JSX.Element => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
+      else {
+        const button = document.querySelector(".add-button") as HTMLSelectElement;
+        button.innerText = "Added!"
+      }
     } catch (error) {
       console.error(error);
       setError("An error occurred while adding to lists.");
