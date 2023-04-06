@@ -21,7 +21,7 @@
 [Deployed Link](#deployed-link) |
 [Preview of App](#preview-of-app) |
 [Technologies](#technologies) |
-[CI/CD](#ci/cd)
+[CI/CD](#ci/cd) |
 [Contributors](#contributors) |
 [Development Resources](#development-resources)
 
