@@ -28,7 +28,7 @@ export const List: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation()
   const listId = location.state.listId
-  
+  console.log(location.state)
 
   const fetchListDetails = async () => {
     try {

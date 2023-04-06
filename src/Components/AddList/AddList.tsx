@@ -19,7 +19,9 @@ export const AddList: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     if (isPost) {
-      navigate(`/lists/${listId}`);
+      navigate(`/lists/${listId}`, {
+        state: {listId: listId}
+      });
     }
     if (hasError) {
       navigate("/error");

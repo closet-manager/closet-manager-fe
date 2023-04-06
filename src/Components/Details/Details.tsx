@@ -186,7 +186,7 @@ export const Details = (): JSX.Element => {
                 </option>
               ))}
             </select>
-            <button onClick={handleAddToList}>Add to List:</button>
+            <button onClick={handleAddToList}>Add to List</button>
           </div>
           <button
             className="details-delete-button"
