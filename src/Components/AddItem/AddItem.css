@@ -21,28 +21,29 @@ p {
   flex-direction: column;
   height: 35vh; 
   margin-top: 15%;
-  width: 50vw;
   text-align: center;
+  width: 50vw;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  width: 50vw;
   padding-bottom: 25%;
+  width: 50vw;
 }
 
 .image-preview {
   height: 140px;
-  width: 200px; 
   margin-bottom: 5%;
+  width: 200px; 
 }
 
 .dropdown,
 .size-input,
 .notes-input {
-  margin-top: 3%;
+  cursor: pointer;
   margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 .upload-container {
@@ -50,10 +51,11 @@ p {
 }
 
 .notes-box {
+  cursor: text;
   height: 50px;
-  width: 180px;
   font-size: 24px;
   margin-bottom: 10%;
+  width: 180px;
 }
 
 .form-button,
@@ -61,6 +63,7 @@ p {
   background-color: #b8c0ff;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
   margin-bottom: 10%;
   width: 50vw;
 }
