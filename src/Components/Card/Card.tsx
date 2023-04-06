@@ -1,9 +1,6 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import { deleteItem } from "../../apiCall";
-import { MouseEventHandler } from "react";
-import { Dispatch } from "react";
-import { SetStateAction } from "react";
 import "./Card.css";
 import GridLoader from "react-spinners/GridLoader";
 
@@ -20,14 +17,13 @@ export const Card = ({ id, image, setChange }: CardProps): JSX.Element => {
   const onLoad = (): void => setLoaded(true);
 
   const handleDeleteButton = (id: string) => {
-    console.log(id);
-    setChange(true);
+    setChange(true)
     return deleteItem(id)
       .then((data) => {
-        console.log(data);
-        setChange(false);
+        console.log(data)
+        setChange(false)
       })
-      .catch((err) => setError(err));
+      .catch((err) => setError(err))
   };
 
   return (

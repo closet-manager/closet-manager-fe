@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState } from "react";
 import { Route, Routes } from "react-router";
 import { AppMenu } from "../Home/Home";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
@@ -36,6 +35,6 @@ function App() {
       <Navbar />
     </main>
   );
-}
+};
 
 export default App;

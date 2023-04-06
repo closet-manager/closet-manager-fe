@@ -91,7 +91,7 @@ describe("Details View", () => {
     });
   });
 
-  it("Add tests for when a user clicks on the add to list button lists", () => {
-    // 
+  it("Should be able to add an item to a list", () => {
+    cy.get('select').select('Goodwill').get('button').eq(1).click()
   });
 });

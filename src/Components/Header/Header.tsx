@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo.png"
-import "./Header.css"
+import logo from "../../assets/logo.png";
+import "./Header.css";
 
 export const Header = (): JSX.Element => {
 
@@ -9,4 +9,4 @@ export const Header = (): JSX.Element => {
       <img className="logo-img" src={logo}></img>
     </NavLink>
   );
-}
+};
