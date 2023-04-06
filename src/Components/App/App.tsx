@@ -17,8 +17,6 @@ import { Error } from "../Error/Error";
 
 
 function App() {
-  const [isListDeleted, setIsListDeleted] = useState<boolean>(false)
-
   return (
     <main>
       <Header />
