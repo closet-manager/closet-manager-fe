@@ -140,20 +140,20 @@ export const Details = (): JSX.Element => {
       {item && (
         <div className="item-details-container">
           {item.attributes.color && (
-            <NavLink to={`/edit/${id}`}>
+            <NavLink to={`/edit/${id}`} className="item-link">
               <p className="item-details">{item.attributes.color}</p>
             </NavLink>
           )}
-          <NavLink to={`/edit/${id}`}>
+          <NavLink to={`/edit/${id}`} className="item-link">
             <p className="item-details">{item.attributes.season}</p>
           </NavLink>
           {item.attributes.clothing_type && (
-            <NavLink to={`/edit/${id}`}>
+            <NavLink to={`/edit/${id}`} className="item-link">
               <p className="item-details">{item.attributes.clothing_type}</p>
             </NavLink>
           )}
           {item.attributes.size && (
-            <NavLink to={`/edit/${id}`}>
+            <NavLink className="item-link" to={`/edit/${id}`}>
               <p className="item-details">{`size ${item.attributes.size}`}</p>
             </NavLink>
           )}
@@ -174,9 +174,15 @@ export const Details = (): JSX.Element => {
       )}
       {!loading && !isDeleted && (
         <section className="details-button-container">
-          <NavLink to={`/edit/${id}`}>
+          <NavLink to={`/edit/${id}`} className="edit-link">
             <button className="details-edit-button">Edit</button>
           </NavLink>
+          <button
+            className="details-delete-button"
+            onClick={() => handleDelete(id!)}
+          >
+            Delete
+          </button>
           <div className="add-to-list-container">
             <select id="list-dropdown" className="details-list-dropdown">
               <option value="">Select a list</option>
@@ -186,14 +192,8 @@ export const Details = (): JSX.Element => {
                 </option>
               ))}
             </select>
-            <button onClick={handleAddToList}>Add to List</button>
           </div>
-          <button
-            className="details-delete-button"
-            onClick={() => handleDelete(id!)}
-          >
-            Delete
-          </button>
+          <button className="add-button" onClick={handleAddToList}>Add to List</button>
         </section>
       )}
     </section>
