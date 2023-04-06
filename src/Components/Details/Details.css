@@ -45,7 +45,7 @@
 .details-button-container {
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-size: 10px;
   justify-content: center;
   width: 100vw;
@@ -64,6 +64,7 @@
   padding: 10px;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+  width: 30vw;
 }
 
 .details-image {
@@ -106,4 +107,14 @@
 .details-list-dropdown {
   height: 5vh;
   font-size: 13px;
+}
+
+.add-to-list-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-delete-container {
+  width: 65vw;
 }
