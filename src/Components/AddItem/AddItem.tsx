@@ -101,7 +101,7 @@ useEffect(() => {
             type="text" name="notes" />
         </label>
         <input type="reset" value="Clear" className="form-button-clear"></input>
-        <button type="submit" value="Submit" className="form-button">Add Item!</button>
+        <button type="submit" value="Submit" className="form-button-add">Add Item!</button>
       </form>
     </div>
   );

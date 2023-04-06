@@ -3,9 +3,9 @@
   color: #2a2a2a;
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 73vh;
   justify-content: space-evenly;
-  padding-bottom: 20%;
+  padding-bottom: 30%;
 }
 
 .item-details-header {
@@ -16,7 +16,6 @@
 
 .item-details-container {
   align-items: center;
-  border-radius: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -43,43 +42,42 @@
 }
 
 .details-button-container {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   font-size: 10px;
-  width: 70vw;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100vw;
 }
 
 .details-edit-button,
 .details-list-button,
-.details-delete-button {
-  align-items: center;
+.details-delete-button,
+.add-button {
   background-color: #b8c0ff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
   font-size: 16px;
   height: 5vh;
   margin: 4px;
   padding: 10px;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
-  width: fit-content;
+  width: 30vw;
 }
 
 .details-image {
   height: 30vh;
-  margin: 5px;
   width: 50vw;
 }
 
 .item-notes {
-  align-items: center;
   border: 1px solid rgb(50, 49, 49);
   border-radius: 8px;
-  display: flex;
   font-size: 16px;
   height: 10vh;
-  justify-content: center;
+  margin-bottom: 5%;
+  margin-top: 5%;
   width: 65vw;
 }
 
@@ -98,4 +96,24 @@
 
 .details-navlink {
   text-decoration: none; 
+}
+
+.item-link,
+.edit-link {
+  text-decoration: none;
+}
+
+.details-list-dropdown {
+  height: 5vh;
+  font-size: 13px;
+}
+
+.add-to-list-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-delete-container {
+  width: 65vw;
 }

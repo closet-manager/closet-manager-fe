@@ -1,11 +1,6 @@
 describe("AddList Page", () => {
   it("should render correctly", () => {
     cy.visit("http://localhost:5173/addlist");
-    //have logo
-    //have navbar
-    //have input box with placeholder
-    //have button for submit
-
     cy.get(".logo-img").should("be.visible");
     cy.get("#nav-bar").should("be.visible");
     cy.get(".form--list").should("be.visible");
@@ -26,7 +21,6 @@ describe("AddList Page", () => {
     });
     it("should submit the form correctly", () => {
       cy.visit("http://localhost:5173/addlist");
-      //intercept and fixture
       cy.intercept(
         "POST",
         "https://closet-manager-be.herokuapp.com/api/v1/users/1/lists",
@@ -41,7 +35,6 @@ describe("AddList Page", () => {
 
       cy.get("#root > main > div > form > button").click();
       cy.url().should("include", "/lists/45");
-
     });
   });
 });
