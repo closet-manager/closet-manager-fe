@@ -7,13 +7,7 @@
 
 </div>
 
-  <p align="center">
-    <a href="https://github.com/smithkirsten/lav-link"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/smithkirsten/lav-link/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/smithkirsten/lav-link/issues">Request Feature</a>
+  <p align="center">   
   </p>
 
 </div>
