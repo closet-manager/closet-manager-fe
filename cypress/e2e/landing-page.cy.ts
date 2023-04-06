@@ -3,9 +3,6 @@ describe("landing page", () => {
     cy.visit("http://localhost:5173");
   });
   it("should render correctly", () => {
-    //logo
-    //4 button
-    //nav bar
     cy.get(".logo-img").should("be.visible");
     cy.get("#nav-bar").should("be.visible");
     cy.get(".home-container").find(".menu-item").its("length").should("eq", 4);
