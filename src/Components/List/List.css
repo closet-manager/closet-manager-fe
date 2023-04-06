@@ -23,7 +23,8 @@
 }
 
 .delete-list {
-  color: #b8c0ff;
+  background-color: #b8c0ff;
+  color: #2a2a2a;
   height: 6vh;
   text-align: center;
   width: 40vw;
