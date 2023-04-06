@@ -21,7 +21,7 @@
 [Deployed Link](#deployed-link) |
 [Preview of App](#preview-of-app) |
 [Technologies](#technologies) |
-[CI/CD](#CI/CD) |
+[CI/CD](#ci/cd) |
 [Contributors](#contributors) |
 [Development Resources](#development-resources)
 
@@ -63,7 +63,7 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 
 ---
   
-## Deployed Link
+## Deployed Link:
 
 [Click here to view deployed app on Vercel](https://closet-manager-fe.vercel.app/)
 
@@ -78,7 +78,7 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 
 ---
 
-## Technologies
+## Technologies:
 
 <div>
   <img src="https://img.shields.io/badge/-react-333333?logo=react&style=for-the-badge" width="100" height="30"/>
