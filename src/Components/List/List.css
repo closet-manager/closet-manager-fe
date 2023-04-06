@@ -14,8 +14,9 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   margin: 2%;
-  margin-left: 30%;
+  margin-left: 38%;
   transition: all 0.2s ease-in-out;
+  width: 40vw;
 }
 
 .list-back-btn:hover {
