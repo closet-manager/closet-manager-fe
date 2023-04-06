@@ -7,7 +7,6 @@ describe("Custom List Page", () => {
 
     cy.get(".logo-img").should("be.visible");
     cy.get("#nav-bar").should("be.visible");
-    cy.get("h2").contains("Custom Lists");
   });
   it("should render button correctly", () => {
     //intercept

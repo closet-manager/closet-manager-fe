@@ -70,8 +70,8 @@ describe("Details View", () => {
     cy.get("button[class='details-edit-button']").should("be.visible");
     cy.get("button[class='details-edit-button']").should("have.text", "Edit");
 
-    cy.get("button[class='details-list-button']").should("be.visible");
-    cy.get("button[class='details-list-button']").should("have.text", "Add to List");
+    cy.get('.add-to-list-container > button').should("be.visible");
+    cy.get('.add-to-list-container > button').should("have.text", "Add to List");
 
     cy.get("button[class='details-delete-button']").should("be.visible");
     cy.get("button[class='details-delete-button']").should("have.text", "Delete");
