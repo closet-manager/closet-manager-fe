@@ -16,7 +16,6 @@
 
 .item-details-container {
   align-items: center;
-  border-radius: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -58,7 +57,7 @@
   background-color: #b8c0ff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 13px;
+  font-size: 16px;
   height: 5vh;
   margin: 4px;
   padding: 10px;
