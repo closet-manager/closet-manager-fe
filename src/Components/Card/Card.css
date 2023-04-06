@@ -15,12 +15,12 @@
 }
 
 .delete-banner {
-  color: #b8c0ff;
+  color: #2a2a2a;
   text-align: center;
 }
 
 .banner-container {
-  background-color: #2a2a2a;
+  background-color: #b8c0ff;
   display: flex;
   flex-direction: column;
   height: 50px;
