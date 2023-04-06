@@ -10,6 +10,6 @@
 .edit-form {
   display: flex;
   flex-direction: column;
-  width: 50vw;
   padding-bottom: 25%;
+  width: 50vw;
 }
