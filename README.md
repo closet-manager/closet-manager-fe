@@ -22,7 +22,7 @@
 [Preview of App](#preview-of-app) |
 [Technologies](#technologies) |
 [Contributors](#contributors) |
-[Sources](#sources)
+[Development Resources](#development-resources)
 
 </div>
 
@@ -170,6 +170,6 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 ---
 
 
-## Resources
+## Development Resources
 
 [GitHub Organization](https://github.com/closet-manager) · [Project Board](https://github.com/orgs/closet-manager/projects/1) · [Wireframe](https://excalidraw.com/#room=f16f53abe8feadadb2b1,qWn6iOL0DiIiKZR4dtgexw) · [Backend Repository](https://github.com/closet-manager/closet-manager-be) · [TypeScript for JS Developers Docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
