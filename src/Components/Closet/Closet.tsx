@@ -141,7 +141,7 @@ export const Closet = (): JSX.Element => {
           Unable to get items. Please try again later"
         </p>
       )}
-      {!filteredItems.length && !loading && <p>No Items Found</p>}
+      {!filteredItems.length && !loading && <p className="error-text">No Items Found</p>}
       <div className="cards-container">{mappedItems}</div>
     </div>
   );
