@@ -76,7 +76,7 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 
 
 ## Preview of App:
-[//]: <> ()
+[//]: <> (add gifs)
 
  <img width="506" alt="Screen Shot 2023-04-06 at 1 33 40 PM" src="https://user-images.githubusercontent.com/109977562/230465567-8686b9fe-d992-4142-a3d6-9924bf25856e.png">
 
