@@ -33,7 +33,7 @@ describe("AddItem Page", () => {
           }
         }
     });
-    cy.get('button.form-button').click();
+    cy.get('button.form-button-add').click();
     cy.url().should('include', '/itemDetails/100');
   });
 
@@ -74,7 +74,7 @@ describe("AddItem Page", () => {
           }
         }
     });
-    cy.get('button.form-button').click();
+    cy.get('button.form-button-add').click();
     cy.url().should('include', '/item-not-found');
   });
 });
