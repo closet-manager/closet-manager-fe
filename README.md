@@ -21,6 +21,7 @@
 [Deployed Link](#deployed-link) |
 [Preview of App](#preview-of-app) |
 [Technologies](#technologies) |
+[CI/CD](#ci/cd)
 [Contributors](#contributors) |
 [Development Resources](#development-resources)
 
@@ -87,6 +88,12 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
   <img src="https://img.shields.io/badge/-CSS3-315780?logo=css3&style=for-the-badge" width="100" height="30"/> 
   <img src="https://img.shields.io/badge/-npm-c12127?logo=npm&logoColor=white&style=for-the-badge" width="80"  height="30"/>
 </div>
+
+---
+
+## CI/CD
+
+<img src="https://github.com/closet-manager/closet-manager-fe/actions/workflows/github-actions-demo.yml/badge.svg" height="30" width="300">
 
 ---
 
