@@ -9,7 +9,7 @@ export const PageNotFound = (): JSX.Element => {
       <NavLink to={"/"}>
         <button className="page-not-found-btn">Return Home</button>
       </NavLink>
-      <img className="empty-closet-image" src={image} alt="Picture of an empty closet"></img>
+      <img className="image" src={image} alt="Picture of an empty closet"></img>
     </section>
   )
 }
