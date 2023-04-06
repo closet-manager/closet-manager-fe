@@ -21,7 +21,7 @@
 [Deployed Link](#deployed-link) |
 [Preview of App](#preview-of-app) |
 [Technologies](#technologies) |
-[CI/CD](#CI//CD) |
+[CI and CD](#ci-and-cd) |
 [Contributors](#contributors) |
 [Development Resources](#development-resources)
 
@@ -91,7 +91,7 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 
 ---
 
-## CI/CD:
+## CI and CD:
   
  <a href="https://github.com/closet-manager/closet-manager-fe/actions">
   <img src="https://github.com/closet-manager/closet-manager-fe/actions/workflows/github-actions-demo.yml/badge.svg" height="30" width="300">
