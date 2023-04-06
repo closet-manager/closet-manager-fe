@@ -3,7 +3,7 @@ import { Card } from "../Card/Card";
 import "./List.css";
 import { useNavigate } from "react-router";
 import { deleteCustomList } from "../../apiCall";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 interface Attributes {
   season: string;
@@ -30,6 +30,7 @@ export const List: React.FC = () => {
   const [change, setChange] = useState<boolean>(false);
   const navigate = useNavigate();
   const { id } = useParams<IdParams>();
+  const location = useLocation();
 
   const fetchListDetails = async () => {
     try {
@@ -86,6 +87,7 @@ export const List: React.FC = () => {
   return (
     <div>
       <div className="list-buttons-container">
+        <h2 className="list-title">{location.state.listName}</h2>
         <button className="list-back-btn" onClick={handleBack}>
           Back To Lists
         </button>

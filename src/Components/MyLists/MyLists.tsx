@@ -36,8 +36,8 @@ export const MyLists: React.FC = () => {
   return (
     <div>
       <div className="button-container">
-        {lists.map((list) => (
-          <Link to={`/lists/${list.id}`} key={list.id} state={{listId: list.id}} style={{ textDecoration: 'none' }}>
+        {lists.map((list, index) => (
+          <Link to={`/lists/${list.id}`} key={list.id} state={{listId: list.id, listName: lists[index].name}} style={{ textDecoration: 'none' }}>
             <button className="list-button">
               {list.name}
             </button>

@@ -46,6 +46,10 @@
   width: 80vw;
 }
 
+.list-title {
+  margin-left: 25%;
+}
+
 @media (max-width: 767px) {
   .card h3 {
     font-size: 1rem;
