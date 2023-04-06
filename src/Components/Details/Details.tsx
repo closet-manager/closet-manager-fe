@@ -174,15 +174,6 @@ export const Details = (): JSX.Element => {
       )}
       {!loading && !isDeleted && (
         <section className="details-button-container">
-          <NavLink to={`/edit/${id}`} className="edit-link">
-            <button className="details-edit-button">Edit</button>
-          </NavLink>
-          <button
-            className="details-delete-button"
-            onClick={() => handleDelete(id!)}
-          >
-            Delete
-          </button>
           <div className="add-to-list-container">
             <select id="list-dropdown" className="details-list-dropdown">
               <option value="">Select a list</option>
@@ -192,8 +183,19 @@ export const Details = (): JSX.Element => {
                 </option>
               ))}
             </select>
+            <button className="add-button" onClick={handleAddToList}>Add to List</button>
+          </div>  
+          <div className="edit-delete-container">
+            <NavLink to={`/edit/${id}`} className="edit-link">
+              <button className="details-edit-button">Edit</button>
+            </NavLink>
+            <button
+              className="details-delete-button"
+              onClick={() => handleDelete(id!)}
+            >
+              Delete
+            </button>
           </div>
-          <button className="add-button" onClick={handleAddToList}>Add to List</button>
         </section>
       )}
     </section>
