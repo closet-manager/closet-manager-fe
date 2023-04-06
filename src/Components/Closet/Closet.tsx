@@ -112,7 +112,7 @@ export const Closet = (): JSX.Element => {
           <option value="black">Black</option>
           <option value="white">White</option>
           <option value="neutral">Neutral</option>
-          <option value="other">Multi</option>
+          <option value="multi">Multi</option>
         </select>
         <select id="filter--season" name="season">
           <option value="">Season</option>
