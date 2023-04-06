@@ -27,11 +27,11 @@ export const EditItem: React.FC = (): JSX.Element => {
   const [itemUpdated, setItemUpdated] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   
-  const itemType: HTMLInputElement | null = document.querySelector("#itemType")
-  const itemColor: HTMLInputElement | null = document.querySelector("#itemColor")
-  const itemSeason: HTMLInputElement | null = document.querySelector("#itemSeason")
-  const itemSize: HTMLInputElement | null = document.querySelector("#itemSize")
-  const itemNotes: HTMLInputElement | null = document.querySelector("#itemNotes")
+  const itemType: HTMLInputElement | null = document.querySelector("#itemType");
+  const itemColor: HTMLInputElement | null = document.querySelector("#itemColor");
+  const itemSeason: HTMLInputElement | null = document.querySelector("#itemSeason");
+  const itemSize: HTMLInputElement | null = document.querySelector("#itemSize");
+  const itemNotes: HTMLInputElement | null = document.querySelector("#itemNotes");
   
   useEffect(() => {
    getSingleItem(params.id!)

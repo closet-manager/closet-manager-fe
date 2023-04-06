@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddList.css";
 import { postCustomList } from "../../apiCall";
@@ -13,43 +13,26 @@ interface Event {
 export const AddList: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
   const [newCustomList, setNewCustomList] = useState<string>("");
-  const [hasError, setHasError] = useState<string | null>(null);
-  const [isPost, setIsPost] = useState<string | null>(null);
   const [listId, setListId] = useState<string | undefined>();
-
-  useEffect(() => {
-    if (isPost) {
-      navigate(`/lists/${listId}`, {
-        state: {listId: listId}
-      });
-    }
-    if (hasError) {
-      navigate("/error");
-    }
-  }, [isPost, hasError]);
 
   const handleInputChange = (event: Event) => {
     setNewCustomList(event.target.value);
   };
 
   const handleSubmit = async () => {
-    console.log(newCustomList);
     try {
       await postCustomList(newCustomList)
-        .then((response) => setListId(response.data.id))
-        .then(() => setIsPost("New List Created"));
+        .then((response) => {
+          setListId(response.data.id)
+          navigate(`/lists/${response.data.id}`, {
+          state: {listId: listId}
+      });
+        })
     } catch (error) {
       console.error(error);
-      setHasError("Error: Unable to Create New List");
+      navigate("/error");
     }
-    clearInput();
-  };
-
-  const clearInput = () => {
     setNewCustomList("");
-    setTimeout(() => {
-      setIsPost(null), setHasError(null);
-    }, 3000);
   };
 
   return (

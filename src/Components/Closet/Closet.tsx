@@ -33,10 +33,9 @@ export const Closet = (): JSX.Element => {
         setFilteredItems(response.data);
         setFetchError(false);
         setLoading(false);
-        console.log("All Items:", allItems);
       })
       .catch((Error) => {
-        console.log("All Items Fetch Error");
+        console.error("All Items Fetch Error");
         setFetchError(true);
         setAllItems([]);
         setFilteredItems([]);
@@ -60,8 +59,7 @@ export const Closet = (): JSX.Element => {
       "#filter--clothing-type"
     )!;
     const color = document.querySelector<HTMLSelectElement>("#filter--color")!;
-    const favorite =
-      document.querySelector<HTMLSelectElement>("#filter--favorite")!;
+   
     const season =
       document.querySelector<HTMLSelectElement>("#filter--season")!;
 
@@ -79,12 +77,11 @@ export const Closet = (): JSX.Element => {
     setLoading(true);
     filterItems(url)
       .then((response) => {
-        console.log("Filtered Items:", response);
         setFilteredItems(response.data);
         setFetchError(false);
       })
       .catch((Error) => {
-        console.log("Filter Fetch Error");
+        console.error("Filter Fetch Error");
         setFetchError(true);
         setFilteredItems([]);
       });
@@ -115,7 +112,7 @@ export const Closet = (): JSX.Element => {
           <option value="black">Black</option>
           <option value="white">White</option>
           <option value="neutral">Neutral</option>
-          <option value="other">Multi</option>
+          <option value="multi">Multi</option>
         </select>
         <select id="filter--season" name="season">
           <option value="">Season</option>
