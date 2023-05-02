@@ -107,3 +107,24 @@ export const deleteCustomList = async (id: string | number) => {
   }
   return res.json();
 }
+
+export const addToCalendar = async (date: string, id: string) => {
+  const url = `https://closet-manager-be.herokuapp.com/api/v1/events`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+    "Content-Type": "application/json"
+  },
+    body: JSON.stringify({
+      "event": {
+        "outfit_date": date,
+        "item_id": id
+      }
+    }),
+  });
+  if (!response.ok) {
+    console.error(response)
+    throw new Error("Unable To Add Item. Try Later.");
+  }
+  return response
+};
