@@ -139,7 +139,6 @@ export const Details = (): JSX.Element => {
   const setCalText = (status: string) => {
     const calText = document.querySelector(".cal-text") as HTMLElement;
     calText.innerText = status
-    console.log("yo", status)
   }
 
   return (
