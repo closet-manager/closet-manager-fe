@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getSingleItem, deleteItem } from "../../apiCall";
 import { singleItemCleaning } from "../../util";
+// @ts-ignore
+import { Calendar} from "../Calendar/Calendar"
+// import "react-datepicker/dist/react-datepicker.css";
+
+
 
 interface Attributes {
   season: string;
@@ -131,6 +136,11 @@ export const Details = (): JSX.Element => {
     fetchLists();
   }, []);
 
+  const setCalText = (status: string) => {
+    const calText = document.querySelector(".cal-text") as HTMLElement;
+    calText.innerText = status
+  }
+
   return (
     <section className="details-section">
       <h2 className="item-details-header">Item Details</h2>
@@ -170,6 +180,11 @@ export const Details = (): JSX.Element => {
           alt="Image of clothing item"
         />
       )}
+      {item && 
+      <div className="cal" onClick={() => setCalText("Add to Calendar")}>
+        <p className="cal-text">Add to Calendar:</p>
+        <Calendar id={id} setCalText={setCalText}/>
+      </div>}
       {item && item.attributes.notes && (
         <div className="notes-container">
           <h2 className="item-notes-header">Notes</h2>
@@ -205,4 +220,3 @@ export const Details = (): JSX.Element => {
     </section>
   );
 }
-
