@@ -136,6 +136,12 @@ export const Details = (): JSX.Element => {
     fetchLists();
   }, []);
 
+  const setCalText = (status: string) => {
+    const calText = document.querySelector(".cal-text") as HTMLElement;
+    calText.innerText = status
+    console.log("yo", status)
+  }
+
   return (
     <section className="details-section">
       <h2 className="item-details-header">Item Details</h2>
@@ -176,9 +182,9 @@ export const Details = (): JSX.Element => {
         />
       )}
       {item && 
-      <div className="cal">
-        <p>Add to Calendar:</p>
-        <Calendar />
+      <div className="cal" onClick={() => setCalText("Add to Calendar")}>
+        <p className="cal-text">Add to Calendar:</p>
+        <Calendar id={id} setCalText={setCalText}/>
       </div>}
       {item && item.attributes.notes && (
         <div className="notes-container">
@@ -215,4 +221,3 @@ export const Details = (): JSX.Element => {
     </section>
   );
 }
-
