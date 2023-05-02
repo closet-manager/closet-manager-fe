@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getSingleItem, deleteItem } from "../../apiCall";
 import { singleItemCleaning } from "../../util";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface Attributes {
   season: string;
@@ -130,6 +132,17 @@ export const Details = (): JSX.Element => {
   useEffect(() => {
     fetchLists();
   }, []);
+
+  () => {
+  const [startDate, setStartDate] = useState(new Date());
+  return (
+    <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      inline
+    />
+  );
+};
 
   return (
     <section className="details-section">
