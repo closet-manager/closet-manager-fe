@@ -10,9 +10,10 @@ interface MenuItem {
 export const AppMenu: React.FC = () => {
   const menuItems: MenuItem[] = [
     { text: "My Closet", path: "/myCloset" },
+    { text: "Calendar", path: "/calendar" },
     { text: "My Lists", path: "/lists" },
-    { text: "Add New Item", path: "/addItem" },
     { text: "Create New List", path: "/addList" },
+    { text: "Add New Item", path: "/addItem" },
   ];
   return (
     <div className="home-container">
