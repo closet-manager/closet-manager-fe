@@ -1,6 +1,6 @@
 import DatePicker from "react-date-picker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
