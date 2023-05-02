@@ -128,3 +128,21 @@ export const addToCalendar = async (date: string, id: string) => {
   }
   return response
 };
+
+export const getCalendarDates = async () => {
+  const url = "https://closet-manager-be.herokuapp.com/api/v1/users/1/items";
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Unable To Fetch Your Data. Try Later.");
+  }
+  return response.json();
+};
+
+export const getItemsForDate = async (date: string) => {
+  const url = `https://closet-manager-be.herokuapp.com/api/v1/event_items/find_all?date=${date}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Unable To Fetch Your Data. Try Later.");
+  }
+  return response.json();
+};
