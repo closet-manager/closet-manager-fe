@@ -13,7 +13,8 @@ import { ItemNotFound } from "../ItemNotFound/ItemNotFound";
 import { EditItem } from "../EditItem/EditItem";
 import { AddList } from "../AddList/AddList";
 import { Error } from "../Error/Error";
-
+// @ts-ignore
+import { CalendarView } from "../CalendarView/CalendarView"
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/error" element={<Error />} />
         <Route path="/edit/:id" element={<EditItem />} />
         <Route path="/addList" element={<AddList />} />
+        <Route path="/calendar" element={<CalendarView/>} />
       </Routes>
       <Navbar />
     </main>
