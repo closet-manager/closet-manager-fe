@@ -5,6 +5,7 @@ import { getSingleItem, deleteItem } from "../../apiCall";
 import { singleItemCleaning } from "../../util";
 // @ts-ignore
 import { Calendar} from "../Calendar/Calendar"
+// import "react-datepicker/dist/react-datepicker.css";
 
 
 
@@ -174,7 +175,11 @@ export const Details = (): JSX.Element => {
           alt="Image of clothing item"
         />
       )}
-      {item && <Calendar />}
+      {item && 
+      <div className="cal">
+        <p>Add to Calendar:</p>
+        <Calendar />
+      </div>}
       {item && item.attributes.notes && (
         <div className="notes-container">
           <h2 className="item-notes-header">Notes</h2>
