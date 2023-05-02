@@ -7,8 +7,6 @@ export const Calendar = ({ id, setCalText }) => {
   const [startDate, setStartDate] = useState(new Date());
 
 const getDate = (date) => {
-  console.log(date.toISOString().slice(0, 10))
-  console.log(id)
   addToCalendar(date.toISOString().slice(0, 10), id)
   .then((res) => {
     if (res.ok) {
@@ -31,4 +29,3 @@ const getDate = (date) => {
     />
   );
 };
-
