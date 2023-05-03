@@ -51,7 +51,7 @@ export const Date = () => {
         <div className="closet-loader">
           <GridLoader
             color="#c8b6ff"
-            size={40}
+            size={20}
             aria-label="Loading Spinner"
             data-testid="loader"
           />
