@@ -9,3 +9,12 @@
 .react-datepicker__month-container {
   width: 90vw;
 }
+
+.react-datepicker__day--highlighted {
+  background-color: #c8b6ff !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: inherit !important;
+  color: inherit !important;
+}
