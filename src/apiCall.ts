@@ -141,6 +141,12 @@ export const getCalendarDates = async () => {
 export const getItemsForDate = async (date: string) => {
   const url = `https://closet-manager-be.herokuapp.com/api/v1/event_items/find_all?date=${date}`;
   const response = await fetch(url);
+  return response.json();
+};
+
+export const getAllDates = async () => {
+  const url = `https://closet-manager-be.herokuapp.com/api/v1/events`;
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error("Unable To Fetch Your Data. Try Later.");
   }
