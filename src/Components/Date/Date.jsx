@@ -3,17 +3,20 @@ import { getItemsForDate } from "../../apiCall";
 import { useEffect, useState} from "react";
 import { Card } from "../Card/Card";
 import "./Date.css"
+import GridLoader from "react-spinners/GridLoader";
 
 export const Date = () => {
   const { date } = useParams()
   const [error, setError] = useState(false)
   const [items, setItems] = useState(undefined)
+  const [loading, setLoading] = useState(true)
   
 
   useEffect(() => {
     if (date) {
       getItemsForDate(date)
       .then((res) => {
+        setLoading(false)
           setItems(res.data)
         })
       }
@@ -44,6 +47,16 @@ export const Date = () => {
 
   return (
     <>
+    {loading && (
+        <div className="closet-loader">
+          <GridLoader
+            color="#c8b6ff"
+            size={40}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
     <h2 className="calendar-date">{formatDate(date)}</h2>
     <div className="card-grid">
         {items &&
@@ -53,7 +66,7 @@ export const Date = () => {
             </div>
           ))}
     </div>
-    {!items && <p className="no-items-on-date">No items found</p>}
+    {!items && !loading && <p className="no-items-on-date">No items found</p>}
     </>
   )
 }
