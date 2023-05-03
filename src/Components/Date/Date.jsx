@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { getItemsForDate } from "../../apiCall";
+import { getItemsForDate, deleteFromCal } from "../../apiCall";
 import { useEffect, useState} from "react";
 import { Card } from "../Card/Card";
 import "./Date.css"
@@ -9,7 +9,9 @@ export const Date = () => {
   const { date } = useParams()
   const [error, setError] = useState(false)
   const [items, setItems] = useState(undefined)
+  const [loaded, setLoaded] = useState(false)
   const [loading, setLoading] = useState(true)
+  const onLoad = () => setLoaded(true);
   
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export const Date = () => {
       getItemsForDate(date)
       .then((res) => {
         setLoading(false)
-          setItems(res.data)
+        setItems(res.data)
         })
       }
   }, [])
@@ -45,6 +47,18 @@ export const Date = () => {
     }
 }
 
+  const handleDelete = (id) => {
+    deleteFromCal(id, date)
+    .then(() => {
+      getItemsForDate(date)
+      .then((res) => {
+        setLoading(false)
+        setItems(res.data)
+        })
+    })
+    .catch(() => setError(true))
+  }
+
   return (
     <>
     {loading && (
@@ -62,8 +76,14 @@ export const Date = () => {
         {items &&
           items.map((item, index) => (
             <div key={index} className="list-card">
-              <Card id={item.id} image={item.attributes.image_url} />
-            </div>
+              
+              <img className="card-image" src={item.attributes.image_url} onLoad={onLoad}/>
+              <div className="banner-container">
+                <p onClick={() => handleDelete(items[index].id)} className="delete-banner">
+                  <i className="fa-light fa-trash-can"></i> Delete
+                </p>
+              </div>
+           </div>
           ))}
     </div>
     {!items && !loading && <p className="no-items-on-date">No items found</p>}
