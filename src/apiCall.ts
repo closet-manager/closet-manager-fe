@@ -152,3 +152,18 @@ export const getAllDates = async () => {
   }
   return response.json();
 };
+
+export const deleteFromCal = async (id: string, date: string) => {
+  const url = `https://closet-manager-be.herokuapp.com/api/v1/items/${id}/${date}`
+  const config = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  }
+  const res = await fetch(url, config)
+  if (!res.ok) {
+    throw new Error("Could not delete.")
+  }
+  return res.json();
+}
