@@ -6,17 +6,17 @@ import { addToCalendar } from "../../apiCall";
 export const Calendar = ({ id, setCalText }) => {
   const [startDate, setStartDate] = useState(new Date());
 
-const getDate = (date) => {
-  addToCalendar(date.toISOString().slice(0, 10), id)
-  .then((res) => {
-    if (res.ok) {
-      setCalText("Added to Calendar!")
-    }
-    else {
-      setCalText("Error - Unable to Add to Calendar")
-    }
-  })
-}
+  const getDate = (date) => {
+    addToCalendar(date.toISOString().slice(0, 10), id)
+   .then((res) => {
+      if (res.ok) {
+        setCalText("Added to Calendar!")
+      }
+      else {
+        setCalText("Error - Unable to Add to Calendar")
+      }
+   })
+  }
 
   return (
     <DatePicker

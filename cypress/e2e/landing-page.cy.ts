@@ -5,7 +5,7 @@ describe("landing page", () => {
   it("should render correctly", () => {
     cy.get(".logo-img").should("be.visible");
     cy.get("#nav-bar").should("be.visible");
-    cy.get(".home-container").find(".menu-item").its("length").should("eq", 4);
+    cy.get(".home-container").find(".menu-item").its("length").should("eq", 5);
   });
   it("should have correct path for each buttons", () => {
     cy.get('.home-container > [href="/myCloset"]')
