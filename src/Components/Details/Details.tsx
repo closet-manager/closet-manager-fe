@@ -161,7 +161,7 @@ export const Details = (): JSX.Element => {
         const data = await res.json();
         setItem(data.data);
       }
-      console.log(item)
+      console.log("UPDATED ITEM", item)
     } catch (err) {
       console.log(err)
       setError("Failed to update favorite for item.")
@@ -208,7 +208,7 @@ export const Details = (): JSX.Element => {
         />
       )}
       {item && 
-        <p onClick={() => handleFavoriteIcon()}>Favorite Item: <span></span>
+        <p onClick={handleFavoriteIcon}>Favorite Item: <span></span>
           <i className="fa-solid fa-heart"></i>
         </p>
       }   
