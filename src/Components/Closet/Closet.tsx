@@ -62,11 +62,14 @@ export const Closet = (): JSX.Element => {
    
     const season =
       document.querySelector<HTMLSelectElement>("#filter--season")!;
+    
+    const favorite = document.querySelector<HTMLSelectElement>("filter--favorite")!;
 
     const queries = [
       { name: "season", value: season.value },
       { name: "clothing_type", value: clothing_type.value },
       { name: "color", value: color.value },
+      {name: "favorite", value: favorite.value},
     ];
     const truthyQueries = queries.filter(({ value }) => value);
     const queriesString = truthyQueries
@@ -121,8 +124,11 @@ export const Closet = (): JSX.Element => {
           <option value="spring">Spring</option>
           <option value="summer">Summer</option>
         </select>
+        <select id="filter--favorite" name="favorite">
+          <option value="">All</option>
+          <option value="true">Favorites</option>
+        </select>
       </div>
-
       {loading && (
         <div className="closet-loader">
           <GridLoader
@@ -135,7 +141,7 @@ export const Closet = (): JSX.Element => {
       )}
       {fetchError && (
         <p className="fetch-error-text">
-          Unable to get items. Please try again later"
+          Unable to get items. Please try again later.
         </p>
       )}
       {!filteredItems.length && !loading && <p className="error-text">No Items Found</p>}
