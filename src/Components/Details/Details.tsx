@@ -16,6 +16,7 @@ interface Attributes {
   color: string | undefined;
   image_url: string;
   notes: string;
+  favorite: boolean;
 }
 
 interface Item {
@@ -141,6 +142,32 @@ export const Details = (): JSX.Element => {
     calText.innerText = status
   }
 
+  const handleFavoriteIcon = async () => {
+    try {
+      const res = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/items/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          item: {
+            favorite: !item?.favorite
+          }
+        })
+      })
+      if (!res.ok) {
+        throw new Error("Could not update item.")
+      } else {
+        const data = await res.json();
+        setItem(data.data);
+      }
+      console.log(item)
+    } catch (err) {
+      console.log(err)
+      setError("Failed to update favorite for item.")
+    }
+  }
+
   return (
     <section className="details-section">
       <h2 className="item-details-header">Item Details</h2>
@@ -180,6 +207,11 @@ export const Details = (): JSX.Element => {
           alt="Image of clothing item"
         />
       )}
+      {item && 
+        <p onClick={() => handleFavoriteIcon()}>Favorite Item: <span></span>
+          <i className="fa-solid fa-heart"></i>
+        </p>
+      }   
       {item && 
       <div className="cal" onClick={() => setCalText("Add to Calendar")}>
         <p className="cal-text">Add to Calendar:</p>
