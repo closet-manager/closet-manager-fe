@@ -49,20 +49,21 @@ export const CalendarView = () => {
           />
         </div>
       )}
-      <div className="calendar-container">
-        {dates && marker && <DatePicker
-            selected={startDate}
-            onChange={(date) => {
-              if (date) {
-                const selectedDate = new Date(date).toISOString().slice(0, 10)
-                navigate(`/date/${selectedDate}`)
-              }
-            }}
-            selectsRange
-            inline
-            highlightDates={marker}
-          />}
-      </div>
+      {dates && marker && <DatePicker
+          selected={startDate}
+          onChange={(date) => {
+            if (date) {
+              const selectedDate = new Date(date).toISOString().slice(0, 10)
+              navigate(`/date/${selectedDate}`)
+            }
+          }}
+          selectsRange
+          inline
+          highlightDates={marker}
+          showMonthDropdown
+          showYearDropdown
+          dropdownMode="select"
+        />}
     </>
   );
 }
