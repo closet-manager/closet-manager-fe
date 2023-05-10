@@ -166,11 +166,6 @@ export const Details = (): JSX.Element => {
   return (
     <section className="details-section">
      {item && <div className="favorite-container">
-        <h2 className="item-details-header">Item Details</h2>
-        {!item.attributes.favorite &&
-        <i className="fa-thin fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
-        {item.attributes.favorite &&
-        <i className="fa-solid fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
       </div>}
       {loading && <p>Loading...</p>}
       {isDeleted && (
@@ -202,11 +197,19 @@ export const Details = (): JSX.Element => {
         </div>
       )}
       {item && (
-        <img
-          className="details-image"
-          src={item.attributes.image_url}
-          alt="Image of clothing item"
-        />
+        <div className="image-and-favorite-container">
+          <div className="favorite-background"></div>
+          {!item.attributes.favorite &&
+          <i className="fa-thin fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
+          {item.attributes.favorite &&
+          <i className="fa-solid fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
+          <img
+            className="details-image"
+            src={item.attributes.image_url}
+            alt="Image of clothing item"
+          />
+        </div>
+        
       )}
       {item && 
       <div className="cal" onClick={() => setCalText("Add to Calendar")}>
