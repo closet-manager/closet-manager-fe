@@ -5,9 +5,6 @@ import { getSingleItem, deleteItem } from "../../apiCall";
 import { singleItemCleaning } from "../../util";
 // @ts-ignore
 import { Calendar} from "../Calendar/Calendar"
-// import "react-datepicker/dist/react-datepicker.css";
-
-
 
 interface Attributes {
   season: string;
@@ -142,31 +139,30 @@ export const Details = (): JSX.Element => {
     calText.innerText = status
   }
   const handleFavoriteIcon = async () => {
-      try {
-        const res = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/items/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            item: {
-              favorite: !item?.attributes.favorite
-            }
-          })
+    try {
+      const res = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/items/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          item: {
+            favorite: !item?.attributes.favorite
+          }
         })
-        if (!res.ok) {
-          throw new Error("Could not update item.")
-        } else {
-          const data = await res.json();
-          setItem(data.data);
-        }
-        console.log("UPDATED ITEM")
-      } catch (err) {
-        console.log(err)
-        setError("Failed to update favorite for item.")
+      })
+      if (!res.ok) {
+        throw new Error("Could not update item.")
+      } else {
+        const data = await res.json();
+        setItem(data.data);
       }
+      console.log("UPDATED ITEM")
+    } catch (err) {
+      console.log(err)
+      setError("Failed to update favorite for item.")
+    }
   }
-  console.log(item)
   return (
     <section className="details-section">
      {item && <div className="favorite-container">
