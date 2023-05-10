@@ -126,7 +126,6 @@
   align-items: center;
 }
 
-
 input {
   text-align: center;
 }
@@ -135,3 +134,13 @@ input {
   background-color: rgb(227, 223, 223);
 }
 
+.favorite-container {
+  display: flex;
+  align-items: center;
+}
+
+.fa-heart {
+  font-size: 3vh;
+  margin-bottom: 1vh;
+  padding: 5px;
+}
