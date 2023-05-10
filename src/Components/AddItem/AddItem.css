@@ -80,3 +80,12 @@ p {
 p {
   margin: 0;
 }
+
+.uploading-text {
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.add-item-spinner {
+  margin: 2vh auto 0 auto;
+}
