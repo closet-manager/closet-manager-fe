@@ -55,13 +55,9 @@ export const Closet = (): JSX.Element => {
   });
 
   const handleFilter = async (): Promise<void> => {
-    const clothing_type = document.querySelector<HTMLSelectElement>(
-      "#filter--clothing-type"
-    )!;
+    const clothing_type = document.querySelector<HTMLSelectElement>("#filter--clothing-type")!;
     const color = document.querySelector<HTMLSelectElement>("#filter--color")!;
-   
-    const season =
-      document.querySelector<HTMLSelectElement>("#filter--season")!;
+    const season = document.querySelector<HTMLSelectElement>("#filter--season")!;
     const favorite = document.querySelector<HTMLSelectElement>("#filter--favorite")!;
 
     const queries = [
@@ -93,10 +89,9 @@ export const Closet = (): JSX.Element => {
 
   return (
     <div className="closet-container">
-      <h2>My Closet</h2>
       <div id="filter" onChange={handleFilter}>
         <select id="filter--clothing-type" name="type">
-          <option value="">Clothing Type</option>
+          <option value="">Type</option>
           <option value="tops">Tops</option>
           <option value="bottoms">Bottoms</option>
           <option value="outerwear">Outerwear</option>

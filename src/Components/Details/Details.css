@@ -4,23 +4,18 @@
   display: flex;
   flex-direction: column;
   height: 73vh;
-  justify-content: space-evenly;
-  padding-bottom: 30%;
-}
-
-.item-details-header {
-  font-size: 24px;
-  height: 5vh;
-  margin: 0;
+  justify-content: flex-start;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto 10vw auto;
 }
 
 .item-details-container {
   align-items: center;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100vw;
+  justify-content: center;
+  margin: 3vw;
 }
 
 .item-details {
@@ -28,12 +23,14 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: black;
-  font-size: 16px;
+  font-size: 14px;
   height: 2.5vh;
-  margin: 2%;
+  margin: 2px;
+  padding: 3px;
   text-align: center;
   text-transform: uppercase;
-  width: 35vw;
+  width: 38vw;
+  overflow: auto;
 }
 
 .item-details:hover {
@@ -57,10 +54,10 @@
   background-color: #b8c0ff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
+  font-size: 12px;
   height: 5vh;
   margin: 4px;
-  padding: 10px;
+  padding: 2px;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   width: 30vw;
@@ -69,6 +66,8 @@
 .details-image {
   height: 30vh;
   width: 50vw;
+  position: absolute;
+  z-index: 1;
 }
 
 .item-notes {
@@ -112,26 +111,37 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  margin: 1vw;
 }
 
 .edit-delete-container {
   width: 65vw;
+  display: flex;
+  margin-bottom: 8vw;
 }
 
 .cal {
-  height: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  margin-top: 30vh;
+  width: 70vw;
+  padding: 0;
+}
+
+.cal-text {
+  margin-top: 3vw;
 }
 
 input {
   text-align: center;
+  width: 35vw;
+  align-self: center;
+  margin: 1vw;
 }
 
 .react-datepicker__month-container {
   background-color: rgb(227, 223, 223);
+  position: absolute;
+  z-index: 5;
 }
 
 .favorite-container {
@@ -143,4 +153,18 @@ input {
   font-size: 3vh;
   margin-bottom: 1vh;
   padding: 5px;
+  position: absolute;
+  z-index: 3;
+}
+
+.image-and-favorite-container {
+  width: 50%;
+}
+
+.favorite-background {
+  width: 50vw;
+  height: 4vh;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(221, 221, 238);
 }

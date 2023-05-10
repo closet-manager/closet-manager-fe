@@ -13,10 +13,6 @@ describe("Details View", () => {
     cy.get("#nav-bar").should("be.visible");
   });
   
-  it("Should contain a header", () => {
-    cy.get("h2").should("contain", "Item Details");
-  });
-  
   it("Should display the item's color, size, season, and type", () => {
     cy.get("p[class='item-details']").eq(0).should("have.text", "orange");
     cy.get("p[class='item-details']").eq(1).should("have.text", "summer");

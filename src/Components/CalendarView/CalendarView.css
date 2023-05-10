@@ -1,13 +1,19 @@
-.calendar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
-}
 
 .react-datepicker__month-container {
-  width: 90vw;
+  width: 100vw;
+  margin-top: -4vh;
+  margin-right: auto;
+  margin-left: auto;
+  
+}
+
+.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after,
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {
+  display: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 .react-datepicker__day--highlighted {

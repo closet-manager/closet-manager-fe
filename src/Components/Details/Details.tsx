@@ -4,10 +4,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getSingleItem, deleteItem } from "../../apiCall";
 import { singleItemCleaning } from "../../util";
 // @ts-ignore
-import { Calendar} from "../Calendar/Calendar"
-// import "react-datepicker/dist/react-datepicker.css";
-
-
+import { Calendar} from "../Calendar/Calendar";
 
 interface Attributes {
   season: string;
@@ -142,39 +139,33 @@ export const Details = (): JSX.Element => {
     calText.innerText = status
   }
   const handleFavoriteIcon = async () => {
-      try {
-        const res = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/items/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            item: {
-              favorite: !item?.attributes.favorite
-            }
-          })
+    try {
+      const res = await fetch(`https://closet-manager-be.herokuapp.com/api/v1/users/1/items/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          item: {
+            favorite: !item?.attributes.favorite
+          }
         })
-        if (!res.ok) {
-          throw new Error("Could not update item.")
-        } else {
-          const data = await res.json();
-          setItem(data.data);
-        }
-        console.log("UPDATED ITEM")
-      } catch (err) {
-        console.log(err)
-        setError("Failed to update favorite for item.")
+      })
+      if (!res.ok) {
+        throw new Error("Could not update item.")
+      } else {
+        const data = await res.json();
+        setItem(data.data);
       }
+      console.log("UPDATED ITEM")
+    } catch (err) {
+      console.log(err)
+      setError("Failed to update favorite for item.")
+    }
   }
-  console.log(item)
   return (
     <section className="details-section">
      {item && <div className="favorite-container">
-        <h2 className="item-details-header">Item Details</h2>
-        {!item.attributes.favorite &&
-        <i className="fa-thin fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
-        {item.attributes.favorite &&
-        <i className="fa-solid fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
       </div>}
       {loading && <p>Loading...</p>}
       {isDeleted && (
@@ -206,11 +197,19 @@ export const Details = (): JSX.Element => {
         </div>
       )}
       {item && (
-        <img
-          className="details-image"
-          src={item.attributes.image_url}
-          alt="Image of clothing item"
-        />
+        <div className="image-and-favorite-container">
+          <div className="favorite-background"></div>
+          {!item.attributes.favorite &&
+          <i className="fa-thin fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
+          {item.attributes.favorite &&
+          <i className="fa-solid fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
+          <img
+            className="details-image"
+            src={item.attributes.image_url}
+            alt="Image of clothing item"
+          />
+        </div>
+        
       )}
       {item && 
       <div className="cal" onClick={() => setCalText("Add to Calendar")}>
@@ -251,4 +250,4 @@ export const Details = (): JSX.Element => {
       )}
     </section>
   );
-}
+};

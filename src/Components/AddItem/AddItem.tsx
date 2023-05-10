@@ -3,6 +3,7 @@ import type { FormEvent, ChangeEvent } from 'react';
 import { useNavigate } from "react-router-dom";
 import './AddItem.css';
 import { createItem } from '../../apiCall';
+import GridLoader from "react-spinners/GridLoader";
 
 export const AddItem: React.FC = (): JSX.Element => {
 
@@ -11,6 +12,7 @@ export const AddItem: React.FC = (): JSX.Element => {
   const [error, setError] = useState<string>("");
   const [itemId, setItemId] = useState<number | undefined>();
   const [successfulPost, setSuccessfulPost] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const imageInputRef = useRef<HTMLInputElement>(null);
 
 useEffect(() => {
@@ -23,6 +25,7 @@ useEffect(() => {
   }, [successfulPost, error]);
 
   const handleSubmit = ({target}: FormEvent<HTMLFormElement> ) => {
+    setLoading(true)
     const formData = new FormData(target as HTMLFormElement)
     createItem(formData)
       .then(data => {
@@ -43,7 +46,19 @@ useEffect(() => {
   }
   
   return (
-    <div className="form-container">
+    <>
+    {loading && <p className="uploading-text">Uploading...</p>}
+    {loading && (
+        <div className="add-item-spinner">
+          <GridLoader
+            color="#c8b6ff"
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
+    {!loading && <div className="form-container">
       <div className='text-container'> 
         <h2 className="form-title">Add New Item</h2>
       </div>
@@ -103,6 +118,7 @@ useEffect(() => {
         <input type="reset" value="Clear" className="form-button-clear"></input>
         <button type="submit" value="Submit" className="form-button-add">Add Item!</button>
       </form>
-    </div>
+    </div>}
+    </>
   );
 };

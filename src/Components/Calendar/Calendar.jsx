@@ -20,8 +20,19 @@ export const Calendar = ({ id, setCalText }) => {
 
   return (
     <DatePicker
+      showMonthDropdown
+      showYearDropdown
+      dropdownMode="select"
       showIcon
-      popperPlacement="top"
+      popperProps={{strategy: 'absolute'}} 
+      popperModifiers={[
+        {
+          name: "offset",
+          options: {
+            offset: [-50, 0],
+          },
+        },
+      ]}
       selected={startDate}
       onChange={(date) => {
         setStartDate(date) 
