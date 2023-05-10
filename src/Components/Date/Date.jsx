@@ -25,13 +25,16 @@ export const Date = () => {
   }, [])
 
   const formatDate = (dateString) => {
-    const [year, month, day] = dateString.split('-');
+    let [year, month, day] = dateString.split('-');
     const monthNames = [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'
     ];
     const monthName = monthNames[Number(month) - 1];
     const daySuffix = getDaySuffix(Number(day));
+    if (day.toString().split("")[0] === "0") {
+     day = day.toString().split("").splice(1, 1)
+    }
     return `${monthName} ${day}${daySuffix}, ${year}`;
   }
 
@@ -86,7 +89,7 @@ export const Date = () => {
            </div>
           ))}
     </div>
-    {!items && !loading && <p className="no-items-on-date">No items found</p>}
+    {!items && !loading && <p className="no-items-on-date">No Items Added</p>}
     </>
   )
 }
