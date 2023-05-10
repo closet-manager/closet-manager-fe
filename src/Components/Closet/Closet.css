@@ -3,11 +3,10 @@
 }
 
 #filter {
-  display: flex;
-  justify-content: space-between;
   background-color: #bbd0ff;
   height: 5vh;
   margin-bottom: 8%;
+  width: 100%;
 }
 
 .cards-container {
@@ -38,8 +37,10 @@ h2 {
   border: none;
   color: #2a2a2a;
   cursor: pointer;
-  text-align: center;
-  width: 150px;
+  text-align: right;
+  align-items: center;
+  padding: 3vw 0 3vw 0;
+  font-size: 12px;
 }
 
 .closet-loader {
