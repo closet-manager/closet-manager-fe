@@ -4,7 +4,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getSingleItem, deleteItem } from "../../apiCall";
 import { singleItemCleaning } from "../../util";
 // @ts-ignore
-import { Calendar} from "../Calendar/Calendar"
+import { Calendar} from "../Calendar/Calendar";
 
 interface Attributes {
   season: string;
@@ -247,4 +247,4 @@ export const Details = (): JSX.Element => {
       )}
     </section>
   );
-}
+};
