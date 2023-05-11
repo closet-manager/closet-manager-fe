@@ -9,7 +9,7 @@ describe("AddList Page", () => {
       "have.attr",
       "placeholder"
     );
-    cy.get('[placeholder="Type List Name Here"]').should("be.visible");
+    cy.get('[placeholder="List Name"]').should("be.visible");
   });
 
   describe("form submission", () => {
