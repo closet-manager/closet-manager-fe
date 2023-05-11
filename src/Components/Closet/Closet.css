@@ -5,7 +5,8 @@
 #filter {
   background-color: #bbd0ff;
   height: 5vh;
-  margin-bottom: 8%;
+  margin-bottom: -3%;
+  margin-top: 5px;
   width: 100%;
 }
 
