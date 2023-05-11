@@ -4,7 +4,12 @@
   margin-top: -4vh;
   margin-right: auto;
   margin-left: auto;
-  
+}
+
+.react-datepicker__month-container,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day--highlighted {
+  cursor: pointer;
 }
 
 .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before,
