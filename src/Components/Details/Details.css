@@ -168,3 +168,9 @@ input {
   z-index: 2;
   background-color: rgb(221, 221, 238);
 }
+
+@media (max-width: 335px) {
+  .react-datepicker__month-container {
+    position: static;
+  }
+}

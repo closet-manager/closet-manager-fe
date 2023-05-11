@@ -3,9 +3,8 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 195px;
   justify-content: flex-end;
-  margin-bottom: 8%;
   width: 150px;
 }
 
@@ -25,7 +24,7 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  height: 50px;
+  height: 25px;
   justify-content: center;
   width: 150px;
 }

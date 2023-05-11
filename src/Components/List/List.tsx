@@ -28,6 +28,7 @@ export const List: React.FC = () => {
   const [listDetails, setListDetails] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [change, setChange] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
   const { id } = useParams<IdParams>();
   const location = useLocation();
@@ -45,6 +46,7 @@ export const List: React.FC = () => {
       const data = await response.json();
       const items = data.data;
       setListDetails(items);
+      setLoading(false)
     } catch (error) {
       setError("An error occurred while fetching the list details.");
     }
@@ -88,18 +90,20 @@ export const List: React.FC = () => {
     <div>
       <div className="list-buttons-container">
         <h2 className="list-title">{location.state.listName}</h2>
-        <button className="list-back-btn" onClick={handleBack}>
-          Back To Lists
-        </button>
-        <button className="delete-list-button" onClick={() => handleDeleteList(id!)}> Delete this list</button>
+         {!loading && !listDetails.length && <p className="list-created">List successfully created</p>}
+        {!loading && !listDetails.length && <p>You haven't added any items to this list.</p>}
+        <button className="delete-list-button" onClick={() => handleDeleteList(id!)}> Delete List</button>
       </div>
       {error && <h2>{error}</h2>}
       <div className="card-grid">
         {listDetails &&
           listDetails.map((item: Item, index: number) => (
             <div key={index} className="list-card">
+              <div className="remove-from-list" onClick={() => handleDelete(item.id)}>
+                <p className="remove-item-text">Remove Item</p>
+                <i className="fa-thin fa-xmark"></i>
+              </div>
               <Card id={item.id} image={item.attributes.image_url} setChange={setChange} />
-              <button className="delete-list" onClick={() => handleDelete(item.id)}>Delete From List</button>
             </div>
           ))}
       </div>
