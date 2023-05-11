@@ -48,7 +48,7 @@ export const AddList: React.FC = (): JSX.Element => {
         <label htmlFor="name" className="list--input">
           <input
             type="text"
-            placeholder="Type List Name Here"
+            placeholder="List Name"
             name="name"
             value={newCustomList}
             onChange={(e) => handleInputChange(e)}
@@ -57,7 +57,7 @@ export const AddList: React.FC = (): JSX.Element => {
           />
         </label>
         <button type="submit" value="Submit" className="form-button">
-          Add My Custom List
+          Create List
         </button>
       </form>
     </div>
