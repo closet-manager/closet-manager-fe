@@ -60,7 +60,6 @@ useEffect(() => {
       )}
     {!loading && <div className="form-container">
       <div className='text-container'> 
-        <h2 className="form-title">Add New Item</h2>
       </div>
       <form className="form" id="form" onSubmit={(e => {e.preventDefault(); handleSubmit(e);})}>
         {image && <img src={image} alt="" className='image-preview'/>}

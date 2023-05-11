@@ -6,7 +6,6 @@ describe("AddItem Page", () => {
   it("should render the page correctly", () => {
     cy.get(".logo-img").should("be.visible");
     cy.get("#nav-bar").should("be.visible");
-    cy.get(".form-title").should("be.visible");
     cy.get(".form").should("be.visible");
   });
 
