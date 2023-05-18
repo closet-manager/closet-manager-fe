@@ -25,20 +25,27 @@ export const CalendarView = () => {
     getAllDates()
     .then((res) => {
       setDates(res.data.map((date) => date.attributes["outfit_date"]))
-      setMarker(dates.map((day) => {
-        let newDate = new Date(day)
-        return new Date(newDate.getTime() + Math.abs(newDate.getTimezoneOffset()*60000) )  
-      }))
       setLoading(false)
     })
     .catch((err) => {
-      setError(err)
+      console.log(err)
+      setError(true)
       setLoading(false)
     })
+  }, [])
+
+  useEffect(() => {
+   if (dates) {
+     setMarker(dates.map((day) => {
+       let newDate = new Date(day)
+       return new Date(newDate.getTime() + Math.abs(newDate.getTimezoneOffset()*60000) )  
+     }))
+   }
   }, [dates])
 
   return (
     <>
+      {error && <p>Error</p>}
       {loading && (
         <div className="closet-loader">
           <GridLoader
@@ -49,21 +56,24 @@ export const CalendarView = () => {
           />
         </div>
       )}
-      {dates && marker && <DatePicker
-          selected={startDate}
-          onChange={(date) => {
-            if (date) {
-              const selectedDate = new Date(date).toISOString().slice(0, 10)
-              navigate(`/date/${selectedDate}`)
-            }
-          }}
-          selectsRange
-          inline
-          highlightDates={marker}
-          showMonthDropdown
-          showYearDropdown
-          dropdownMode="select"
-        />}
+      {dates && marker && <div className="date-picker">
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => {
+              if (date) {
+                const selectedDate = new Date(date).toISOString().slice(0, 10)
+                navigate(`/date/${selectedDate}`)
+              }
+            }}
+            selectsRange
+            inline
+            highlightDates={marker}
+            showMonthDropdown
+            showYearDropdown
+            dropdownMode="select"
+          />
+        </div>
+        }
     </>
   );
 }
