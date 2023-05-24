@@ -9,11 +9,13 @@ describe("calendar", () => {
     cy.get("select").eq(0).select(4)
     cy.get("select").should("have.value", "4")
   });
-  // it("Should display the selected month and year", () => {
-  //   cy.wait(1000)
-  //   cy.get("select").eq(0).select(4)
-  //   cy.get("select").eq(1).select(123)
-  //   cy.get("div").eq(7).should("have.text", "May 2023")
-  // });
- 
+   it("Should allow the user to select a year", () => {
+    cy.get("select").eq(1).select(123)
+    cy.get("select").eq(1).should("have.value", "2023")
+  });
+  it("Should display the selected month and year", () => {
+    cy.get("select").eq(0).select(4)
+    cy.get("select").eq(1).select(123)
+    cy.get("div").eq(7).should("have.text", "May 2023")
+  });
 });
