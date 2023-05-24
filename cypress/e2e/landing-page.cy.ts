@@ -26,5 +26,11 @@ describe("landing page", () => {
       .then((href) => {
         cy.visit("http://localhost:5173" + href);
       });
+    cy.visit("http://localhost:5173")
+    cy.get('.home-container > [href="/calendar"]')
+      .invoke("attr", "href")
+      .then((href) => {
+        cy.visit("http://localhost:5173" + href);
+      });
   });
 });

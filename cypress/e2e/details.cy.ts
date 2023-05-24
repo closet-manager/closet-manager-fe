@@ -1,5 +1,9 @@
 describe("Details View", () => {
   beforeEach(() => {
+    cy.intercept("POST", "https://closet-manager-be.herokuapp.com/api/v1/events", {
+      statusCode: 202,
+    })
+    cy.intercept("GET", "https://closet-manager-be.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f992d19ee8a075a2504c274ce72a7b33b98e7851/orange-top.avif", {})
     cy.intercept("GET", "https://closet-manager-be.herokuapp.com/api/v1/users/1/items", {fixture: "closet"})
     cy.intercept("GET", "https://closet-manager-be.herokuapp.com/api/v1/users/1/items/1", {fixture: "details"})
     cy.intercept("DELETE", "https://closet-manager-be.herokuapp.com/api/v1/users/1/items/1", {fixture: "deletedItem"})
@@ -89,5 +93,11 @@ describe("Details View", () => {
 
   it("Should be able to add an item to a list", () => {
     cy.get('select').select('Goodwill').get('button').eq(1).click()
+  });
+
+  it("Should be able to add an item to a date on the calendar", () => {
+    cy.get('p[class="cal-text"]').should("have.text", "Add to Calendar:")
+    cy.get("input").type("05/01/2023")
+    cy.get('p[class="cal-text"]').should("have.text", "Added to Calendar!")
   });
 });
