@@ -8,8 +8,8 @@ describe("date view", () => {
     cy.get("select").eq(1).select(123)
     cy.get("div").eq(30).click()
   });
-  // it("Should display the date", () => {
-  //   cy.get("h2").should("have.text", "May 8th, 2023")
-  // });
+  it("Should display the date", () => {
+    cy.get("h2").should("have.text", "May 8th, 2023")
+  });
   
 });
