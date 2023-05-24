@@ -18,4 +18,11 @@ describe("calendar", () => {
     cy.get("select").eq(1).select(123)
     cy.get("div").eq(7).should("have.text", "May 2023")
   });
+  it("Should redirect the user to a date page when they click on a date", () => {
+    cy.wait(1000)
+    cy.get("div").eq(30).click()
+    cy.on("url:changed", (newUrl) => {
+      expect(newUrl).to.contain("/date/");
+    });
+  })
 });
