@@ -19,7 +19,7 @@
 [Abstract](#abstract) |
 [Installation Instructions](#installation-instructions) |
 [Deployed Link](#deployed-link) |
-[Preview of App](#preview-of-app) |
+[App Demo](#app-demo) |
 [Technologies](#technologies) |
 [CI and CD](#ci-and-cd) |
 [Contributors](#contributors) |
@@ -33,7 +33,7 @@
 
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
 
-Closet Collection is your ultimate solution to organize your wardrobe. With this app, you can easily manage your clothing collection, take photos of your clothing items, create custom lists for trips or general organization, and categorize your wardrobe by color, season, and clothing type for easy filtering. You can add notes to your clothing items, such as if you have lent an item to a friend or if it is at the dry cleaners. In addition, you can create personalized lists for events or trips, and add items to the list as packing reminders. Finally, if you ever need to make changes, you can easily delete items from your closet or from a list. Say goodbye to cluttered closets and disorganized trips, and say hello to the perfect wardrobe management tool with Closet Collection. 
+Closet Collection is your ultimate solution to organize your wardrobe. With this app, you can easily manage your clothing collection, take photos of your clothing items, create custom lists for trips or general organization, preselect items to create outfits for specific dates, favorite items, and categorize your wardrobe by color, season, clothing type, and favorites for easy filtering. Closet Collection allows you to easily access your preselected outfit using the calendar feature, eliminating the hassle of choosing an outfit for a special occasion. You can add notes to your clothing items, such as if you have lent an item to a friend or if it is at the dry cleaners. In addition, you can create personalized lists for events or trips, and add items to the list as packing reminders. Finally, if you ever need to make changes, you can easily delete items from your closet or from a list. Say goodbye to cluttered closets and disorganized trips, and say hello to the perfect wardrobe management tool with Closet Collection.
   
 </div>
 
@@ -69,8 +69,12 @@ Closet Collection is your ultimate solution to organize your wardrobe. With this
 
 ---
 
-## Preview of App:
+## App Demo:
 [//]: <> (add gifs)
+  
+  Closet Collection was nominated amongst peers and instructors to participate in Turing School of Software & Design's bi-quarterly demo competition, where we placed second.<br>
+ 
+ View our Demo Comp Video [here](https://www.youtube.com/watch?v=0hlVi5rcZs0)
 
  <img width="506" alt="Screen Shot 2023-04-06 at 1 33 40 PM" src="https://user-images.githubusercontent.com/109977562/230465567-8686b9fe-d992-4142-a3d6-9924bf25856e.png">
 
