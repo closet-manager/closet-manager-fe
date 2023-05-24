@@ -8,7 +8,6 @@ describe("date view", () => {
     cy.get("h2").should("have.text", "May 8th, 2023")
   });
   it("Should display any items saved for the date", () => {
-    cy.get("img[class='card-image']")
+    cy.get("img[class='card-image']").should("have.attr", "src").should("eq", 'https://closet-manager-be.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ae3a8ce6ac5aa716c3475265c9e90e5f22992e9c/image.jpg')
   });
-  
 });
