@@ -17,16 +17,18 @@
 .delete-banner {
   color: #2a2a2a;
   text-align: center;
+  
 }
 
 .banner-container {
   background-color: #b8c0ff;
-  border-radius: 8px;
+  border-radius: 0 0px 8px 8px;
   display: flex;
   flex-direction: column;
   height: 25px;
   justify-content: center;
   width: 150px;
+  margin-top: -14%;
 }
 
 .loader {
