@@ -44,7 +44,7 @@ export const CalendarView = () => {
   }, [dates])
 
   return (
-    <section className="cal-view">
+    <section>
       {error && <p>Error</p>}
       {loading && (
         <div className="closet-loader">
@@ -56,24 +56,27 @@ export const CalendarView = () => {
           />
         </div>
       )}
-      {dates && marker && <div className="date-picker">
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => {
-              if (date) {
-                const selectedDate = new Date(date).toISOString().slice(0, 10)
-                navigate(`/date/${selectedDate}`)
-              }
-            }}
-            selectsRange
-            inline
-            highlightDates={marker}
-            showMonthDropdown
-            showYearDropdown
-            dropdownMode="select"
-          />
-        </div>
-        }
+      <div className="cal-view">
+        {dates && marker && <div className="date-picker">
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => {
+                if (date) {
+                  const selectedDate = new Date(date).toISOString().slice(0, 10)
+                  navigate(`/date/${selectedDate}`)
+                }
+              }}
+              selectsRange
+              inline
+              highlightDates={marker}
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </div>
+          }
+
+      </div>
 
     </section>
   );
