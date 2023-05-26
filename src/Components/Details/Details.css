@@ -66,8 +66,6 @@
 .details-image {
   height: 30vh;
   width: 50vw;
-  position: absolute;
-  z-index: 1;
 }
 
 .item-notes {
@@ -122,13 +120,12 @@
 
 .cal {
   text-align: center;
-  margin-top: 30vh;
   width: 70vw;
   padding: 0;
 }
 
 .cal-text {
-  margin-top: 3vw;
+  margin-top: 8px;
 }
 
 input {
@@ -144,27 +141,22 @@ input {
   z-index: 5;
 }
 
-.favorite-container {
-  display: flex;
-  align-items: center;
-}
-
 .fa-heart {
   font-size: 3vh;
   margin-bottom: 1vh;
   padding: 5px;
-  position: absolute;
   z-index: 3;
 }
 
 .image-and-favorite-container {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .favorite-background {
   width: 50vw;
+  margin-top: -5%;
   height: 4vh;
-  position: absolute;
   z-index: 2;
   background-color: rgb(221, 221, 238);
 }
@@ -172,5 +164,27 @@ input {
 @media (max-width: 335px) {
   .react-datepicker__month-container {
     position: static;
+  }
+}
+
+@media (min-width: 500px) {
+  .details-image {
+    height: 40vh;
+    width: 40vw;
+  }
+
+  .favorite-background {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 1000px) {
+  .details-image {
+    height: 45vh;
+    width: 30vw;
+  }
+
+  .favorite-background {
+    width: 30vw;
   }
 }
