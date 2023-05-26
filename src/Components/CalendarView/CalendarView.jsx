@@ -44,7 +44,7 @@ export const CalendarView = () => {
   }, [dates])
 
   return (
-    <>
+    <section className="cal-view">
       {error && <p>Error</p>}
       {loading && (
         <div className="closet-loader">
@@ -74,6 +74,7 @@ export const CalendarView = () => {
           />
         </div>
         }
-    </>
+
+    </section>
   );
 }
