@@ -87,12 +87,11 @@ export const List: React.FC = () => {
   }
 
   return (
-    <div>
+    <section className="list">
+      <h2 className="list-title">{location.state.listName}</h2>
       <div className="list-buttons-container">
-        <h2 className="list-title">{location.state.listName}</h2>
          {!loading && !listDetails.length && <p className="list-created">List successfully created</p>}
         {!loading && !listDetails.length && <p>You haven't added any items to this list.</p>}
-        <button className="delete-list-button" onClick={() => handleDeleteList(id!)}> Delete List</button>
       </div>
       {error && <h2>{error}</h2>}
       <div className="card-grid">
@@ -107,6 +106,7 @@ export const List: React.FC = () => {
             </div>
           ))}
       </div>
-    </div>
+      <button className="delete-list-button" onClick={() => handleDeleteList(id!)}> Delete List</button>
+    </section>
   );
 };

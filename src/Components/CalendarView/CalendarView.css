@@ -1,9 +1,27 @@
 
-.react-datepicker__month-container {
+.cal-view {
+  height: 80vh;
   width: 100vw;
-  margin-top: -4vh;
+  overflow-x: hidden;
+  margin: 3vh auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-picker {
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+}
+
+.react-datepicker__month-container {
+  width: 90vw;
+}
+
+.react-datepicker__week {
+  height: 7vh;
+  font-size: 15px;;
 }
 
 .react-datepicker__month-container,
