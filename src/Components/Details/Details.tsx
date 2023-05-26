@@ -165,8 +165,6 @@ export const Details = (): JSX.Element => {
   }
   return (
     <section className="details-section">
-     {item && <div className="favorite-container">
-      </div>}
       {loading && <p>Loading...</p>}
       {isDeleted && (
         <>
@@ -198,11 +196,12 @@ export const Details = (): JSX.Element => {
       )}
       {item && (
         <div className="image-and-favorite-container">
-          <div className="favorite-background"></div>
-          {!item.attributes.favorite &&
-          <i className="fa-thin fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
-          {item.attributes.favorite &&
-          <i className="fa-solid fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
+          <div className="favorite-background">
+            {!item.attributes.favorite &&
+            <i className="fa-thin fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
+            {item.attributes.favorite &&
+            <i className="fa-solid fa-heart" onClick={(() => handleFavoriteIcon())}></i>}
+          </div>
           <img
             className="details-image"
             src={item.attributes.image_url}
