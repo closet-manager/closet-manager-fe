@@ -65,8 +65,16 @@ export const AddList: React.FC = (): JSX.Element => {
             Create List
           </button>
         </form>
-
       </div>}
+      {loading && (
+        <div className="add-item-spinner">
+          <GridLoader
+            color="#c8b6ff"
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>)}
     </div>
   );
 };
