@@ -7,7 +7,7 @@
   justify-content: flex-start;
   padding: 0;
   width: 100%;
-  margin: 0 auto 10vw auto;
+  margin: 0 auto 0 auto;
 }
 
 .item-details-container {
@@ -76,6 +76,8 @@
   margin-bottom: 5%;
   margin-top: 5%;
   width: 65vw;
+  text-align: center;
+  padding: 5px 0 5px 0;
 }
 
 .notes-container {
@@ -115,7 +117,7 @@
 .edit-delete-container {
   width: 65vw;
   display: flex;
-  margin-bottom: 8vw;
+  margin-bottom: 15vh;
 }
 
 .cal {
