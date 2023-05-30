@@ -90,7 +90,7 @@ export const List: React.FC = () => {
     <section className="list">
       <h2 className="list-title">{location.state.listName}</h2>
       <div className="list-buttons-container">
-        {!loading && !listDetails.length && <p>You haven't added any items to this list.</p>}
+        {!loading && !listDetails.length && <p className="empty-list-text">You haven't added any items to this list.</p>}
       </div>
       {error && <h2>{error}</h2>}
       <div className="card-grid">
