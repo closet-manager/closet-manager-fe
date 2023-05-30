@@ -24,7 +24,7 @@ export const AddList: React.FC = (): JSX.Element => {
       await postCustomList(newCustomList)
         .then((response) => {
           setListId(response.data.id)
-          navigate(`/lists/${response.data.id}`, {
+          navigate(`/lists`, {
           state: {listId: listId}
       });
         })
